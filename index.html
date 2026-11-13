@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crumb · the After Effects toolkit for edits</title>
+  <meta name="description" content="Crumb is an After Effects panel for TikTok edits: beat markers, auto captions, a curve editor, presets, expressions without code and 20 one-click tools.">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="icon" href="assets/crumb-logo.svg" type="image/svg+xml">
+  <meta property="og:title" content="Crumb · the After Effects toolkit for edits">
+  <meta property="og:description" content="Beat markers, auto captions, curves, presets and 20 one-click tools in one panel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============================================================ nav -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Crumb home">
+      <img src="assets/crumb-logo.svg" alt="" width="26" height="26">
+      <span>Crumb</span>
+    </a>
+    <nav class="pills" aria-label="Sections">
+      <span class="pill-bg" aria-hidden="true"></span>
+      <a href="#features" data-pill>Features</a>
+      <a href="#install" data-pill>Install</a>
+      <a href="#pricing" data-pill>Pricing</a>
+      <a href="#faq" data-pill>FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm buy" href="#pricing" data-buy>Get Crumb</a>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================ hero -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">After Effects panel · made by an editor</p>
+        <h1 class="reveal">Edit faster.<br>Hit every beat.</h1>
+        <p class="lede reveal">Beat markers, auto captions, a curve editor, presets and 20 one-click tools, in one clean panel built for TikTok edits.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="#pricing" data-buy>Get Crumb · <span data-price>$5</span></a>
+          <a class="btn btn-ghost" href="#features">See what's inside</a>
+        </div>
+        <p class="fine reveal"><span data-ae>After Effects 2020 or newer</span> · Windows · instant download</p>
+      </div>
+
+      <!-- an illustration of the panel (not the real extension) -->
+      <div class="mock reveal" aria-label="Preview of the Crumb panel" role="img">
+        <div class="mock-top"><img src="assets/crumb-logo.svg" alt="" width="16" height="16"><b>Crumb</b><span class="mock-ae">AE 26.3</span></div>
+        <div class="mock-tabs">
+          <span class="mock-pill" aria-hidden="true"></span>
+          <button type="button" data-screen="tools" aria-label="Tools"><svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/></svg><span>Tools</span></button>
+          <button type="button" data-screen="beats" aria-label="Beats"><svg viewBox="0 0 16 16"><path d="M2 8h1.5M4.5 5v6M7 2.5v11M9.5 5.5v5M12 4v8"/></svg><span>Beats</span></button>
+          <button type="button" data-screen="captions" aria-label="Captions"><svg viewBox="0 0 16 16"><rect x="1.75" y="3" width="12.5" height="10" rx="1.5"/><path d="M4.5 9.5h3M9.5 9.5h2M4.5 7h7"/></svg><span>Captions</span></button>
+          <button type="button" data-screen="presets" aria-label="Presets"><svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg><span>Presets</span></button>
+        </div>
+
+        <div class="mock-screens">
+          <div class="screen" data-screen="tools">
+            <p class="m-sec">Layers</p>
+            <div class="m-grid">
+              <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor" stroke="none"/></svg>ADJ</span>
+              <span><svg viewBox="0 0 16 16"><path d="M3 4V2.75h10V4M8 2.75v10.5M6 13.25h4"/></svg>TXT</span>
+              <span><svg viewBox="0 0 16 16"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/></svg>SOL</span>
+              <span><svg viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" rx="1"/><path d="M8 5.5v5M5.5 8h5"/></svg>NUL</span>
+            </div>
+            <p class="m-sec">Transform</p>
+            <div class="m-row"><svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke-dasharray="2 2"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/></svg>Center</div>
+            <div class="m-row"><svg viewBox="0 0 16 16"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg>Fit to Comp</div>
+            <div class="m-row"><svg viewBox="0 0 16 16"><path d="M8 2v12" stroke-dasharray="1.5 1.5"/><path d="M6 4.5 2.5 11.5H6Z"/><path d="M10 4.5l3.5 7H10Z"/></svg>Mirror</div>
+          </div>
+
+          <div class="screen" data-screen="beats">
+            <div class="m-src"><b>phonk_drop.mp3</b><span>Analyzed · 0:24</span></div>
+            <div class="m-wave" id="mock-wave"></div>
+            <div class="m-meta"><span>101 hits</span><span><b>140</b> BPM</span></div>
+            <div class="m-seg"><i class="on">Hits</i><i>Beat grid</i></div>
+            <div class="m-cta">Place 101 markers</div>
+          </div>
+
+          <div class="screen" data-screen="captions">
+            <p class="m-h">Auto captions</p>
+            <p class="m-sec">Words on screen</p>
+            <div class="m-seg wide"><i>1</i><i class="on">2</i><i>3</i><i>4</i></div>
+            <div class="m-cap"><span>WAIT FOR</span><span>IT…</span><span>NO WAY</span></div>
+            <p class="m-ok"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="m5.3 8.2 1.9 1.9 3.6-3.8"/></svg>Runs on this PC</p>
+            <div class="m-cta">Make captions</div>
+          </div>
+
+          <div class="screen" data-screen="presets">
+            <div class="m-head"><b>Presets</b><i class="m-save">+ Save</i></div>
+            <div class="m-list">
+              <div><svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg><b>Shakes</b><span>9</span></div>
+              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>remap</b><span>Time Remap · 2 keys</span></div>
+              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>glow text</b><span>Deep Glow, Shadow</span></div>
+              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>bubble in</b><span>6 keyframes</span></div>
+              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>lens blur in</b><span>2 keyframes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ features -->
+    <section class="section" id="features">
+      <div class="sec-head reveal">
+        <p class="eyebrow">What's inside</p>
+        <h2>Everything you redo in every edit, one click away.</h2>
+      </div>
+      <div class="features" data-stagger>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><path d="M2 8h1.5M4.5 5v6M7 2.5v11M9.5 5.5v5M12 4v8"/></svg>
+          <h3>Beat markers</h3>
+          <p>Finds every kick and snare, or a steady BPM grid, and drops markers on them. Then cut every layer on the beat in one click.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><rect x="1.75" y="3" width="12.5" height="10" rx="1.5"/><path d="M4.5 9.5h3M9.5 9.5h2M4.5 7h7"/></svg>
+          <h3>Auto captions</h3>
+          <p>Speech to text on your own PC. Every caption lands on its words, one after another, never overlapping. Audio never leaves your computer.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><path d="M2.5 13.5c5 0 3-11 11-11"/><circle cx="5" cy="13.5" r="1" fill="currentColor"/><circle cx="11" cy="2.5" r="1" fill="currentColor"/></svg>
+          <h3>Curve editor</h3>
+          <p>Shape eases with real Value and Speed graphs, apply them to any keyframes, and keep your own curves.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg>
+          <h3>Presets on your PC</h3>
+          <p>Save keyframes and effect stacks into your own folders. Apply them anywhere in one click, back them up, share them.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><path d="M2.5 13.5c1.5 0 2-1 2.4-3l1.2-6c.4-2 1-2.75 2.4-2.75"/><path d="M3.5 6.5h4"/><path d="m9.5 7.5 4 5M13.5 7.5l-4 5"/></svg>
+          <h3>Effects library</h3>
+          <p>Any effect you own, Deep Glow, Sapphire, Continuum included, saved with your settings and added in one click.</p>
+        </article>
+        <article class="feature">
+          <svg viewBox="0 0 16 16"><path d="M5 3.5C3.5 3.5 3.5 5 3.5 6S2.5 8 2 8c.5 0 1.5.5 1.5 2s0 2.5 1.5 2.5M11 3.5c1.5 0 1.5 1.5 1.5 2.5s1 2 1.5 2c-.5 0-1.5.5-1.5 2s0 2.5-1.5 2.5"/><path d="M6.5 10.5 9.5 5.5"/></svg>
+          <h3>Expressions, no code</h3>
+          <p>Wiggle, loop, bounce, jitter, link. Stack blocks, see the real expression, edit it by hand if you want.</p>
+        </article>
+        <article class="feature wide">
+          <svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/></svg>
+          <h3>20 one-click tools</h3>
+          <p>Adjustment layer, solids, shapes, nulls with parenting, anchor point pad, center, fit to comp, mirror, pre-compose and un-pre-compose, freeze frame, save frame, quick text in your style, and color paint.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================ install -->
+    <section class="section" id="install">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Install</p>
+        <h2>Up and running in a minute.</h2>
+      </div>
+      <ol class="steps" data-stagger>
+        <li><b>Get Crumb</b><span>Checkout takes a few seconds. You get the download link and receipt by email.</span></li>
+        <li><b>Install the .zxp</b><span>Open <code>crumb.zxp</code> with a free ZXP installer, such as the <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">aescripts ZXP Installer</a>.</span></li>
+        <li><b>Open it in After Effects</b><span>Restart After Effects, then go to <code>Window › Extensions › Crumb</code> and dock it anywhere.</span></li>
+      </ol>
+    </section>
+
+    <!-- ============================================================ pricing -->
+    <section class="section" id="pricing">
+      <div class="price-card reveal">
+        <div class="price-top">
+          <img src="assets/crumb-logo.svg" alt="" width="40" height="40" class="price-cookie">
+          <div>
+            <h2>Crumb</h2>
+            <p class="fine">Version <span data-version>0.1.0</span> · <span data-ae>After Effects 2020 or newer</span></p>
+          </div>
+          <p class="price" data-price>$5</p>
+        </div>
+        <ul class="includes" data-stagger>
+          <li>Beat markers and cut on the beat</li>
+          <li>Offline auto captions</li>
+          <li>Curve editor with saved curves</li>
+          <li>Presets, effects library and expressions</li>
+          <li>20 one-click tools</li>
+          <li>Updates as they ship</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="#" data-buy data-checkout>Get Crumb · <span data-price>$5</span></a>
+        <p class="fine center" data-checkout-note>Secure checkout · instant download</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ faq -->
+    <section class="section" id="faq">
+      <div class="sec-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions</h2>
+      </div>
+      <div class="faq" data-stagger>
+        <details>
+          <summary>Which After Effects versions work?</summary>
+          <p>After Effects 2020 and newer. It's built and tested on After Effects 2026 for Windows.</p>
+        </details>
+        <details>
+          <summary>Do auto captions need the internet?</summary>
+          <p>Only once: the first time, Crumb downloads the free speech engine and a model (about 150 MB). After that, captions are made on your PC and your audio never leaves it.</p>
+        </details>
+        <details>
+          <summary>Does it work with my plug-ins?</summary>
+          <p>Yes. The effects library and presets work with any effect you have installed, including Deep Glow, Sapphire and Continuum. If a preset uses an effect someone doesn't have, Crumb skips it and says so.</p>
+        </details>
+        <details>
+          <summary>How do I install it?</summary>
+          <p>Open the <code>.zxp</code> file with a ZXP installer, restart After Effects and open <code>Window › Extensions › Crumb</code>. Steps are <a href="#install">above</a>.</p>
+        </details>
+        <details>
+          <summary>I found a bug or have an idea.</summary>
+          <p>Message <a href="https://www.tiktok.com/@celo.vfx" target="_blank" rel="noopener" data-tiktok>celo.vfx on TikTok</a>. Crumb is made by an editor, for editors.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ footer -->
+  <footer class="foot">
+    <a class="cookie" href="https://www.tiktok.com/@celo.vfx" target="_blank" rel="noopener" data-tiktok aria-label="Follow celo.vfx on TikTok">
+      <span class="cookie-bubble">follow <b>celo.vfx</b> on tiktok!</span>
+      <span class="crumbs" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img src="assets/crumb-logo.svg" alt="" width="44" height="44">
+    </a>
+    <p class="fine">© <span id="year">2026</span> Crumb · made by celo.vfx</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

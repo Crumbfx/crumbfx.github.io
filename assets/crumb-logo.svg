@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+<title>Soft chocolate chip cookie with a bite and falling crumbs</title>
+<desc>A warm golden cartoon cookie with cocoa outlines, a scalloped bite at the upper right, and three floating crumbs. Transparent background.</desc>
+<defs>
+<clipPath id="cookie"><path d="M689 285 C675 315 690 350 724 358 C706 390 723 430 759 438 C749 465 765 492 795 500 C805 660 694 794 537 816 C365 840 205 725 180 557 C155 392 263 228 425 195 C520 174 620 205 689 285Z"/></clipPath>
+</defs>
+<path d="M689 285 C675 315 690 350 724 358 C706 390 723 430 759 438 C749 465 765 492 795 500 C805 660 694 794 537 816 C365 840 205 725 180 557 C155 392 263 228 425 195 C520 174 620 205 689 285Z" fill="#E9B575"/>
+<g clip-path="url(#cookie)">
+<path d="M157 491 C210 691 351 774 509 764 C660 755 742 660 796 545 L836 663 L715 823 L460 866 L256 761 L153 588Z" fill="#D59A5C"/>
+<path d="M241 443 C266 329 350 257 456 246" stroke="#F8D8A5" stroke-width="27" stroke-linecap="round"/>
+<path d="M278 547 C267 510 275 482 287 465" stroke="#F8D8A5" stroke-width="16" stroke-linecap="round"/>
+<g fill="#79503D" stroke="#593D31" stroke-width="8" stroke-linejoin="round">
+<path d="M369 341 Q373 326 388 330 L419 343 Q433 350 426 365 L410 392 Q402 404 388 396 L364 380 Q354 372 360 359Z"/>
+<path d="M526 277 Q538 268 549 278 L569 301 Q579 314 568 324 L547 339 Q534 346 525 333 L511 311 Q505 298 516 288Z"/>
+<path d="M521 452 Q527 436 544 442 L575 454 Q590 461 582 477 L568 504 Q560 517 546 510 L517 494 Q506 487 512 473Z"/>
+<path d="M322 537 Q334 525 348 535 L370 555 Q382 566 372 580 L355 603 Q345 615 331 604 L308 585 Q298 577 305 563Z"/>
+<path d="M438 670 Q442 652 459 656 L494 663 Q508 667 504 683 L496 713 Q492 727 476 723 L446 713 Q433 709 435 695Z"/>
+<path d="M644 602 Q651 589 665 597 L691 614 Q705 624 695 638 L677 662 Q667 675 653 665 L630 648 Q619 639 628 625Z"/>
+</g>
+<g fill="#B77B48">
+<ellipse cx="448" cy="472" rx="8" ry="10" transform="rotate(-25 448 472)"/>
+<circle cx="337" cy="445" r="7"/><circle cx="466" cy="349" r="6"/>
+<circle cx="606" cy="374" r="8"/><circle cx="410" cy="592" r="6"/>
+<ellipse cx="570" cy="608" rx="7" ry="10" transform="rotate(35 570 608)"/>
+<circle cx="371" cy="695" r="7"/><circle cx="566" cy="735" r="7"/>
+<circle cx="712" cy="532" r="6"/>
+</g>
+</g>
+<path d="M689 285 C675 315 690 350 724 358 C706 390 723 430 759 438 C749 465 765 492 795 500 C805 660 694 794 537 816 C365 840 205 725 180 557 C155 392 263 228 425 195 C520 174 620 205 689 285Z" stroke="#624333" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<g stroke="#624333" stroke-width="11" stroke-linejoin="round">
+<path d="M771 290 Q777 280 788 285 L811 300 Q820 307 815 317 L804 334 Q798 344 788 338 L769 327 Q759 321 764 310Z" fill="#E9B575"/>
+<path d="M843 384 Q850 375 860 382 L875 396 Q882 404 875 413 L865 425 Q858 432 850 425 L837 412 Q830 404 837 395Z" fill="#E9B575"/>
+<path d="M858 486 Q866 481 871 489 L878 501 Q883 510 874 514 L861 519 Q852 521 850 512 L849 498 Q849 490 858 486Z" fill="#DFA968"/>
+</g>
+<path d="M777 302 L787 298" stroke="#F8D8A5" stroke-width="7" stroke-linecap="round"/>
+</svg>
