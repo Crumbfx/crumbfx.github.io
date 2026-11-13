@@ -436,3 +436,5 @@ h2 { margin: 0; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; font-wei
 .foot-link:hover { color: var(--text-1); }
 @media (max-width: 640px) { .launch { font-size: 13px; } .launch-time { order: 5; width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .launch-dot { animation: none; } }
+
+.policy-note { margin-top: 6px; }

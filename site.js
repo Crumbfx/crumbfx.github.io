@@ -52,6 +52,9 @@
     });
   }
 
+  var rf = document.getElementById("faq-refunds");
+  if (rf) Array.prototype.forEach.call(document.querySelectorAll('a[href="#faq-refunds"]'), function (a) { a.addEventListener("click", function () { rf.open = true; }); });
+
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
