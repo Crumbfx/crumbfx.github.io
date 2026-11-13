@@ -13,6 +13,6 @@ window.CRUMB_SITE = {
   version: "0.1.0",
   aeVersions: "After Effects 2020 or newer",
   tiktok: "https://www.tiktok.com/@celo.vfx",
-  discord: "https://discord.gg/EpZC5hq4Np",
+  discord: "https://discord.gg/6KCEgNSDnc",
   launch: { endsAt: "2026-11-14T19:27:00-05:00", code: "LAUNCH" }
 };
