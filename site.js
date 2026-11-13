@@ -23,6 +23,50 @@
   });
   if (cfg.discord) each("[data-discord]", function (n) { n.href = cfg.discord; });
 
+  /* ---------------------------------------------------- Discord section: live counts from the public invite; the HTML numbers stay if this fails */
+  var com = document.querySelector(".com-card");
+  var counted = false; // the count-up runs once, when the card scrolls into view
+  function countTo(el, to) {
+    var from = parseInt(el.textContent, 10) || 0;
+    el.setAttribute("data-count", to);
+    if (reduce || !counted || from === to) { el.textContent = to; return; }
+    var t0 = null, dur = 1400;
+    (function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (to - from) * e);
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+  function runCounts() { counted = true; each("[data-dc-members], [data-dc-online]", function (n) { n.textContent = "0"; countTo(n, parseInt(n.getAttribute("data-count"), 10) || 0); }); }
+  if (com && "IntersectionObserver" in window && !reduce) {
+    var cio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { cio.disconnect(); runCounts(); } }, { threshold: 0.35 });
+    cio.observe(com);
+  } else counted = false;
+  var invite = (cfg.discord || "").split("/").pop();
+  if (invite) {
+    fetch("https://discord.com/api/v10/invites/" + invite + "?with_counts=true")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.guild) return;
+        if (d.approximate_member_count) each("[data-dc-members]", function (n) { if (counted) countTo(n, d.approximate_member_count); else { n.setAttribute("data-count", d.approximate_member_count); n.textContent = d.approximate_member_count; } });
+        if (d.approximate_presence_count) each("[data-dc-online]", function (n) { if (counted) countTo(n, d.approximate_presence_count); else { n.setAttribute("data-count", d.approximate_presence_count); n.textContent = d.approximate_presence_count; } });
+        if (d.guild.icon) each("[data-dc-icon]", function (i) { i.src = "https://cdn.discordapp.com/icons/" + d.guild.id + "/" + d.guild.icon + ".png?size=128"; });
+      })
+      .catch(function () {});
+  }
+
+  /* parallax: the cookie and chips lean toward the pointer */
+  var stage = document.querySelector(".com-stage");
+  if (stage && com && !reduce && window.matchMedia("(pointer: fine)").matches) {
+    com.addEventListener("pointermove", function (e) {
+      var r = stage.getBoundingClientRect();
+      stage.style.setProperty("--mx", Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2))).toFixed(3));
+      stage.style.setProperty("--my", Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2))).toFixed(3));
+    });
+    com.addEventListener("pointerleave", function () { stage.style.setProperty("--mx", 0); stage.style.setProperty("--my", 0); });
+  }
+
   /* ---------------------------------------------------- free-launch window (switches itself off at cfg.launch.endsAt) */
   var L = cfg.launch, endMs = L && Date.parse(L.endsAt);
   function launchActive() { return !!(L && endMs && Date.now() < endMs); }
