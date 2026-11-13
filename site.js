@@ -21,6 +21,37 @@
       });
     }
   });
+  if (cfg.discord) each("[data-discord]", function (n) { n.href = cfg.discord; });
+
+  /* ---------------------------------------------------- free-launch window (switches itself off at cfg.launch.endsAt) */
+  var L = cfg.launch, endMs = L && Date.parse(L.endsAt);
+  function launchActive() { return !!(L && endMs && Date.now() < endMs); }
+  var banner = document.getElementById("launch");
+  if (banner && launchActive()) {
+    banner.hidden = false;
+    document.body.classList.add("has-launch");
+    each("[data-launch-code], #launch-code", function (n) { n.textContent = L.code; });
+    each("[data-launch-ends]", function (n) { n.textContent = new Date(endMs).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); });
+    var note = document.getElementById("launch-note"); if (note) note.hidden = false;
+    each("[data-buy]", function (n) { if (/Get Crumb/.test(n.textContent) || n.classList.contains("launch-go")) { n.classList.add("is-free"); } });
+    each("[data-price]", function (n) { n.classList.add("was-price"); });
+    var tEl = document.getElementById("launch-time");
+    var pad = function (v) { return v < 10 ? "0" + v : "" + v; };
+    (function tick() {
+      var left = endMs - Date.now();
+      if (left <= 0) { banner.hidden = true; document.body.classList.remove("has-launch"); if (note) note.hidden = true; each("[data-price]", function (n) { n.classList.remove("was-price"); }); return; }
+      var h = Math.floor(left / 3600000), m = Math.floor(left / 60000) % 60, s = Math.floor(left / 1000) % 60;
+      tEl.textContent = "Ends in " + pad(h) + ":" + pad(m) + ":" + pad(s);
+      setTimeout(tick, 1000);
+    })();
+    var copy = document.getElementById("launch-copy");
+    copy.addEventListener("click", function () {
+      var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy code"; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(L.code).then(done, done);
+      else { var t = document.createElement("textarea"); t.value = L.code; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} document.body.removeChild(t); done(); }
+    });
+  }
+
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 

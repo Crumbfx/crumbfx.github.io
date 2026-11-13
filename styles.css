@@ -402,3 +402,37 @@ h2 { margin: 0; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; font-wei
   .price { font-size: 36px; }
   .hero-cta .btn { flex: 1 1 auto; }
 }
+
+/* ------------------------------------------------------------ free-launch banner */
+.launch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 10px var(--gutter);
+  background: var(--brand);
+  color: var(--accent-ink);
+  font-size: 14px;
+  text-align: center;
+}
+.launch[hidden] { display: none; }
+.launch p { margin: 0; }
+.launch code { padding: 2px 8px; border-radius: 6px; background: rgba(11, 11, 12, 0.14); color: var(--accent-ink); font-weight: 700; letter-spacing: 0.04em; }
+.launch-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-ink); animation: pulse-dot 1.6s var(--ease) infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
+.launch-copy, .launch-go { height: 30px; padding: 0 14px; border-radius: var(--r-pill); font: 700 13px var(--font-ui); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease); }
+.launch-copy { background: rgba(11, 11, 12, 0.14); border: 0; color: var(--accent-ink); }
+.launch-copy:hover { background: rgba(11, 11, 12, 0.24); }
+.launch-go { background: var(--accent-ink); color: var(--text-1); }
+.launch-go:hover { background: #000; }
+.launch-copy:active, .launch-go:active { transform: scale(0.96); }
+.launch-time { font: 600 13px var(--font-mono); font-variant-numeric: tabular-nums; }
+.was-price { text-decoration: line-through; text-decoration-thickness: 2px; opacity: 0.55; }
+.price.was-price::after { content: " Free"; display: inline-block; margin-left: 10px; text-decoration: none; opacity: 1; color: var(--brand); }
+.btn .was-price { opacity: 0.6; }
+.launch-note { color: var(--brand); }
+.foot-link { color: var(--text-2); text-underline-offset: 3px; }
+.foot-link:hover { color: var(--text-1); }
+@media (max-width: 640px) { .launch { font-size: 13px; } .launch-time { order: 5; width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .launch-dot { animation: none; } }
