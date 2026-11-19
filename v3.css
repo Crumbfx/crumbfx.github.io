@@ -253,3 +253,33 @@
   .x-row { display: contents; }
   .x-tile[style*="1.7778"], .x-tile[style*="2.4"] { grid-column: 1 / -1; }
 }
+
+/* ------------------------------------------------------------ download form */
+.x-dialog { width: min(440px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 28px; background: var(--card); color: var(--text-1); overflow: visible;
+  box-shadow: 0 0 0 1px rgba(233,181,117,.25), 0 60px 140px -30px rgba(0,0,0,.95); }
+.x-dialog::backdrop { background: rgba(5,5,6,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.x-dialog[open] { animation: x-pop .35s var(--ease) both; }
+.x-dialog[open]::backdrop { animation: x-fade .3s var(--ease) both; }
+@keyframes x-pop { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes x-fade { from { opacity: 0; } to { opacity: 1; } }
+.x-form { position: relative; display: grid; gap: 14px; padding: 34px 30px 28px; }
+.x-form > img { width: 44px; height: 44px; }
+.x-form h2 { margin: 0; font-size: 30px; line-height: 1.05; letter-spacing: -.045em; font-weight: 800; }
+.x-form-sub { margin: -6px 0 4px; font-size: 15px; color: var(--text-2); }
+.x-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--bg-2); color: var(--text-2); font-size: 22px; line-height: 1; cursor: pointer; }
+.x-close:hover { background: var(--bg-3); color: var(--text-1); }
+.x-field { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-2); }
+.x-field input { height: 48px; padding: 0 16px; border: 0; border-radius: 14px; background: var(--bg-2); color: var(--text-1); font: 500 16px var(--font-ui);
+  box-shadow: inset 0 0 0 1.5px var(--line-strong); transition: box-shadow var(--dur-fast); }
+.x-field input::placeholder { color: var(--text-3); }
+.x-field input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--brand); }
+.x-field.bad input { box-shadow: inset 0 0 0 2px var(--red); }
+.x-err { color: var(--red); font-weight: 600; }
+.x-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.x-note { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--text-3); }
+.x-status { margin: 0; font-size: 14px; font-weight: 600; color: var(--green); }
+.x-status:empty { display: none; }
+.x-status.warn { color: var(--brand); }
+.x-again { justify-self: center; font-size: 13px; color: var(--text-2); text-underline-offset: 3px; }
+.x-form button[disabled] { opacity: .6; cursor: progress; }
+@media (prefers-reduced-motion: reduce) { .x-dialog[open], .x-dialog[open]::backdrop { animation: none; } }

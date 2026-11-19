@@ -159,4 +159,55 @@
     var draw = function () { var t = two(Math.floor(secs / 3600)) + ":" + two(Math.floor(secs / 60) % 60) + ":" + two(secs % 60); clock.textContent = t; active.textContent = t; };
     whileVisible(tm, function () { if (!iv) iv = setInterval(function () { secs++; draw(); }, 1000); }, function () { clearInterval(iv); iv = null; });
   }
+
+  /* ---------------------------------------------------- download form: name + TikTok go to Discord, then the file starts */
+  var dlg = $("#dl-form");
+  if (dlg && typeof dlg.showModal === "function") {
+    var RELAY = "https://crumbfx-private-reports.netlify.app/.netlify/functions/download";
+    var cfg = window.CRUMB_SITE || {};
+    var form = $("form", dlg), status = $("[data-dl-status]", dlg), submit = $("[data-dl-submit]", dlg), again = $(".x-again", dlg);
+    var fileUrl = function () { return cfg.downloadUrl || again.href; };
+    var remembered = function (k, v) { try { if (v === undefined) return localStorage.getItem("crumb.dl." + k) || ""; localStorage.setItem("crumb.dl." + k, v); } catch (e) { return ""; } };
+    function start() {
+      var a = document.createElement("a"); a.href = fileUrl(); a.rel = "noopener"; a.download = ""; document.body.appendChild(a); a.click(); a.remove();
+    }
+    // every download button on the page opens the form; without JavaScript they still link straight to the file
+    $$("[data-download]").forEach(function (b) {
+      if (dlg.contains(b)) return;
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        status.textContent = ""; status.className = "x-status"; again.hidden = true; submit.disabled = false;
+        $$(".x-field", form).forEach(function (f) { f.classList.remove("bad"); $(".x-err", f).hidden = true; });
+        form.elements.name.value = remembered("name"); form.elements.tiktok.value = remembered("tiktok");
+        dlg.showModal();
+        (form.elements.name.value ? form.elements.tiktok : form.elements.name).focus();
+      });
+    });
+    $("[data-dl-close]", dlg).addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    function bad(field, on) { var f = form.elements[field].closest(".x-field"); f.classList.toggle("bad", on); $(".x-err", f).hidden = !on; }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = form.elements.name.value.trim(), tiktok = form.elements.tiktok.value.trim();
+      var shortTikTok = tiktok.replace(/^@/, "").length < 2;
+      bad("name", !name); bad("tiktok", shortTikTok);
+      if (!name || shortTikTok) { (!name ? form.elements.name : form.elements.tiktok).focus(); return; }
+      submit.disabled = true; status.className = "x-status"; status.textContent = "Sending…";
+      var done = function (ok, why) {
+        remembered("name", name); remembered("tiktok", tiktok);
+        if (!ok && (why === "name" || why === "tiktok")) { bad(why, true); submit.disabled = false; status.textContent = ""; form.elements[why].focus(); return; }
+        // If our message service is down the person still gets the file. Nobody is locked out.
+        status.className = "x-status" + (ok ? "" : " warn");
+        status.textContent = ok ? "Thanks " + name + "! Your download is starting." : "Your download is starting.";
+        start(); again.hidden = false; submit.disabled = false;
+        setTimeout(function () { if (dlg.open) dlg.close(); }, 3200);
+      };
+      var ctl = window.AbortController ? new AbortController() : null, timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+      fetch(RELAY, { method: "POST", headers: { "content-type": "application/json" }, signal: ctl ? ctl.signal : undefined,
+        body: JSON.stringify({ name: name, tiktok: tiktok, website: form.elements.website.value, version: cfg.version || "" }) })
+        .then(function (r) { clearTimeout(timer); return r.json().catch(function () { return {}; }).then(function (b) { return { status: r.status, body: b }; }); })
+        .then(function (r) { if (r.status === 400) done(false, r.body.error); else done(r.status === 200); })
+        .catch(function () { clearTimeout(timer); done(false); });
+    });
+  }
 })();
