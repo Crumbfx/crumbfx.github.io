@@ -7,6 +7,7 @@
   /* ---------------------------------------------------- settings -> page */
   function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
   if (cfg.version) each("[data-version]", function (n) { n.textContent = cfg.version; });
+  if (cfg.released) each("[data-released]", function (n) { n.textContent = cfg.released; });
   if (cfg.aeVersions) each("[data-ae]", function (n) { n.textContent = cfg.aeVersions; });
   if (cfg.tiktok) each("[data-tiktok]", function (n) { n.href = cfg.tiktok; });
   if (cfg.downloadUrl) each("[data-download]", function (n) { n.href = cfg.downloadUrl; });
