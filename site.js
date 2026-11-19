@@ -135,12 +135,63 @@
   window.addEventListener("resize", onScroll);
   onScroll();
 
+  /* Use a still until the visitor plays the release recording. Native video
+     controls take over during playback and also work when JavaScript is off. */
+  var film = document.getElementById("release-film"), playFilm = document.querySelector(".release-play");
+  if (film && playFilm && film.canPlayType("video/mp4")) {
+    function showFilmPoster() { film.controls = false; playFilm.hidden = false; }
+    showFilmPoster();
+    playFilm.addEventListener("click", function () {
+      playFilm.hidden = true;
+      film.controls = true;
+      film.focus({ preventScroll: true });
+      film.play().catch(function () { film.controls = true; });
+    });
+    film.addEventListener("ended", function () {
+      var wasFocused = document.activeElement === film;
+      film.currentTime = 0;
+      showFilmPoster();
+      if (wasFocused) playFilm.focus({ preventScroll: true });
+    });
+  }
+
   /* ---------------------------------------------------- panel mock */
   var mock = document.querySelector(".mock");
   if (!mock) return;
   var tabs = Array.prototype.slice.call(mock.querySelectorAll(".mock-tabs button"));
   var pill = mock.querySelector(".mock-pill"), screens = mock.querySelectorAll(".screen");
-  var wave = document.getElementById("mock-wave"), order = ["tools", "beats", "captions", "presets"], idx = 0, timer = null;
+  var wave = document.getElementById("mock-wave"), waveTimer, selectedTab = tabs[0];
+  var library = mock.querySelector(".m-library"), folder = library.querySelector("select");
+  var clips = Array.prototype.slice.call(library.querySelectorAll(".m-lib-strip button"));
+  var preview = library.querySelector("figure img");
+  var clipCount = library.querySelector(".m-lib-count");
+  var selectedClip = clips[0], previewMotion;
+
+  function selectClip(clip) {
+    selectedClip = clip;
+    clips.forEach(function (item) { item.setAttribute("aria-pressed", String(item === clip)); });
+    var src = clip.querySelector("img").getAttribute("src");
+    if (preview.getAttribute("src") !== src) {
+      preview.src = src;
+      preview.alt = clip.dataset.name;
+      if (previewMotion) previewMotion.cancel();
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && preview.animate)
+        previewMotion = preview.animate([{ opacity: 0.65 }, { opacity: 1 }], { duration: 200, easing: "ease-out" });
+    }
+    library.querySelector("figcaption strong").textContent = clip.dataset.name;
+    library.querySelector("figcaption span").textContent = clip.dataset.time;
+  }
+  clips.forEach(function (clip) {
+    clip.addEventListener("click", function () { selectClip(clip); });
+  });
+  folder.addEventListener("change", function () {
+    var visible = clips.filter(function (clip) {
+      clip.hidden = folder.value !== "all" && folder.value !== clip.dataset.folder;
+      return !clip.hidden;
+    });
+    if (selectedClip.hidden) selectClip(visible[0]);
+    clipCount.textContent = visible.length + (visible.length === 1 ? " clip" : " clips");
+  });
 
   // waveform bars (deterministic pseudo-random so it looks the same every time)
   var seed = 7;
@@ -154,24 +205,50 @@
     wave.appendChild(b);
   }
 
-  function show(name) {
-    tabs.forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-screen") === name); });
-    Array.prototype.forEach.call(screens, function (s) { s.classList.toggle("on", s.getAttribute("data-screen") === name); });
-    var on = mock.querySelector(".mock-tabs button.on");
-    pill.style.width = on.offsetWidth + "px";
-    pill.style.transform = "translateX(" + on.offsetLeft + "px)";
-    wave.classList.remove("grown");
-    if (name === "beats") setTimeout(function () { wave.classList.add("grown"); }, reduce ? 0 : 120);
+  function alignPill() {
+    pill.style.width = selectedTab.offsetWidth + "px";
+    pill.style.transform = "translateX(" + selectedTab.offsetLeft + "px)";
   }
-  function next() { idx = (idx + 1) % order.length; show(order[idx]); }
-  function play() { if (!reduce) { clearInterval(timer); timer = setInterval(next, 3400); } }
-
-  tabs.forEach(function (t) {
-    t.addEventListener("click", function () { idx = order.indexOf(t.getAttribute("data-screen")); show(order[idx]); play(); });
+  function show(tab) {
+    selectedTab = tab;
+    var name = tab.dataset.screen;
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.classList.toggle("on", on);
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    Array.prototype.forEach.call(screens, function (screen) {
+      var on = screen.dataset.screen === name;
+      screen.classList.toggle("on", on);
+      screen.setAttribute("aria-hidden", String(!on));
+    });
+    [folder].concat(clips).forEach(function (control) { control.tabIndex = name === "library" ? 0 : -1; });
+    alignPill();
+    clearTimeout(waveTimer);
+    wave.classList.remove("grown");
+    if (name === "beats") waveTimer = setTimeout(function () { wave.classList.add("grown"); }, reduce ? 0 : 120);
+  }
+  tabs.forEach(function (tab, index) {
+    var name = tab.dataset.screen, screen = mock.querySelector('.screen[data-screen="' + name + '"]');
+    tab.id = "demo-tab-" + name;
+    screen.id = "demo-panel-" + name;
+    screen.setAttribute("role", "tabpanel");
+    screen.setAttribute("aria-labelledby", tab.id);
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-controls", screen.id);
+    tab.addEventListener("click", function () { show(tab); });
+    tab.addEventListener("keydown", function (event) {
+      var next;
+      if (event.key === "Home") next = 0;
+      else if (event.key === "End") next = tabs.length - 1;
+      else if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+      else if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+      else return;
+      event.preventDefault(); show(tabs[next]); tabs[next].focus();
+    });
   });
-  mock.addEventListener("mouseenter", function () { clearInterval(timer); });
-  mock.addEventListener("mouseleave", play);
-  show(order[0]);
-  play();
-  window.addEventListener("resize", function () { show(order[idx]); });
+  show(selectedTab);
+  window.addEventListener("resize", alignPill);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignPill);
 })();

@@ -10,9 +10,9 @@
 window.CRUMB_SITE = {
   price: "$5",
   checkoutUrl: "https://payhip.com/b/BgoA6",
-  version: "0.1.0",
+  version: "0.1.21",
   aeVersions: "After Effects 2020 or newer",
   tiktok: "https://www.tiktok.com/@celo.vfx",
   discord: "https://discord.gg/6KCEgNSDnc",
-  launch: { endsAt: "2026-11-14T19:27:00-05:00", code: "LAUNCH" }
+  launch: null
 };
