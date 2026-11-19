@@ -4,7 +4,6 @@ Static site (no build step): `index.html`, `styles.css`, `demo.css`, `site.js`, 
 
 ## Settings (`config.js`)
 - `downloadUrl`: the one-click download (GitHub release ZIP).
-- `payhipUrl`: the free Payhip listing (same ZIP).
 - `supportUrl`: the pay-what-you-want donation product on Payhip (supporters get a thank-you letter PDF by email).
 - `version`: shown on the page.
 

@@ -5,9 +5,7 @@
  */
 window.CRUMB_SITE = {
   downloadUrl: "https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.27/Crumb-V2-0.1.27-Windows.zip",
-  supportUrl: "https://payhip.com/b/bd9Hh",
-  payhipUrl: "https://payhip.com/b/BgoA6",
-  version: "0.1.27",
+  supportUrl: "https://payhip.com/b/bd9Hh",  version: "0.1.27",
   released: "Nov 19, 2026",
   aeVersions: "After Effects 2020 or newer",
   tiktok: "https://www.tiktok.com/@celo.vfx",
