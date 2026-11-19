@@ -355,6 +355,7 @@ h2 { margin: 0; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; font-wei
 .steps span { font-size: 15px; color: var(--text-2); }
 .steps a { color: var(--text-1); text-underline-offset: 3px; }
 
+.section.download-section { padding-bottom: 24px; }
 .price-card {
   max-width: 520px;
   margin: 0 auto;
@@ -366,12 +367,24 @@ h2 { margin: 0; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; font-wei
 .price-top { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
 .price-top h2 { font-size: 28px; }
 .price-top .fine { margin-top: 4px; }
-.price { margin: 0 0 0 auto; font-size: 44px; font-weight: 800; letter-spacing: -0.04em; }
+.price { margin: 0 0 0 auto; color: var(--brand); font-size: 44px; font-weight: 800; letter-spacing: -0.04em; }
 .price-cookie { transition: transform var(--dur-med) var(--ease-spring); }
 .price-card:hover .price-cookie { transform: rotate(-12deg) scale(1.06); }
 .includes { display: grid; gap: 10px; margin: 0 0 28px; padding: 0; list-style: none; }
 .includes li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-1); }
 .includes li::before { content: ""; width: 18px; height: 18px; flex: none; border-radius: 50%; background: var(--bg-3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23f4f4f2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 8.3 2.3 2.2 4.7-5'/%3E%3C/svg%3E") center/12px no-repeat; }
+
+.section.support-section { padding-block: 0 24px; }
+.support-card {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 20px;
+  max-width: 520px; margin-inline: auto; padding: 22px 24px;
+  background: var(--bg-1); border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+}
+.support-card > div { flex: 1 1 200px; }
+.support-card h2 { font-size: 20px; }
+.support-card p { margin: 5px 0 0; color: var(--text-2); font-size: 14px; }
+.support-card .btn { height: 38px; padding-inline: 16px; font-size: 13px; }
+.support-card [hidden] { display: none; }
 
 .faq { display: grid; gap: 8px; max-width: 760px; }
 .faq details { border-radius: var(--r-lg); background: var(--bg-1); transition: background-color var(--dur-med) var(--ease); }
@@ -471,41 +484,8 @@ h2 { margin: 0; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; font-wei
   .hero-cta .btn { flex: 1 1 auto; }
 }
 
-/* ------------------------------------------------------------ free-launch banner */
-.launch {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  padding: 10px var(--gutter);
-  background: var(--brand);
-  color: var(--accent-ink);
-  font-size: 14px;
-  text-align: center;
-}
-.launch[hidden] { display: none; }
-.launch p { margin: 0; }
-.launch code { padding: 2px 8px; border-radius: 6px; background: rgba(11, 11, 12, 0.14); color: var(--accent-ink); font-weight: 700; letter-spacing: 0.04em; }
-.launch-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-ink); animation: pulse-dot 1.6s var(--ease) infinite; }
-@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
-.launch-copy, .launch-go { height: 30px; padding: 0 14px; border-radius: var(--r-pill); font: 700 13px var(--font-ui); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease); }
-.launch-copy { background: rgba(11, 11, 12, 0.14); border: 0; color: var(--accent-ink); }
-.launch-copy:hover { background: rgba(11, 11, 12, 0.24); }
-.launch-go { background: var(--accent-ink); color: var(--text-1); }
-.launch-go:hover { background: #000; }
-.launch-copy:active, .launch-go:active { transform: scale(0.96); }
-.launch-time { font: 600 13px var(--font-mono); font-variant-numeric: tabular-nums; }
-.was-price { text-decoration: line-through; text-decoration-thickness: 2px; opacity: 0.55; }
-.price.was-price::after { content: " Free"; display: inline-block; margin-left: 10px; text-decoration: none; opacity: 1; color: var(--brand); }
-.btn .was-price { opacity: 0.6; }
-.launch-note { color: var(--brand); }
 .foot-link { color: var(--text-2); text-underline-offset: 3px; }
 .foot-link:hover { color: var(--text-1); }
-@media (max-width: 640px) { .launch { font-size: 13px; } .launch-time { order: 5; width: 100%; } }
-@media (prefers-reduced-motion: reduce) { .launch-dot { animation: none; } }
-
-.policy-note { margin-top: 6px; }
 
 /* ------------------------------------------------------------ community (Discord) */
 .com-card {

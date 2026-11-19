@@ -1,18 +1,14 @@
 /*
- * Site settings: edit these, nothing else needs to change.
- *   price        what the buy buttons show
- *   checkoutUrl  your Lemon Squeezy (or Gumroad) checkout link for Crumb; upload dist/crumb-<version>.zxp there as the product file
- *   version      shown on the page
- *   launch       free-launch window: endsAt (ISO time, with timezone) and the coupon code. The banner and the "free" labels
- *                switch themselves off after endsAt. Set launch: null to remove.
- *   discord      support server invite
+ * downloadUrl points to the release ZIP or a verified free Payhip listing.
+ * supportUrl is the separate donation page. Set it once the donation page
+ * and the supporter thank-you email are ready.
  */
 window.CRUMB_SITE = {
-  price: "$5",
-  checkoutUrl: "https://payhip.com/b/BgoA6",
+  downloadUrl: "https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.21/Crumb-V2-Windows.zip",
+  supportUrl: "https://payhip.com/b/bd9Hh",
+  payhipUrl: "https://payhip.com/b/BgoA6",
   version: "0.1.21",
   aeVersions: "After Effects 2020 or newer",
   tiktok: "https://www.tiktok.com/@celo.vfx",
-  discord: "https://discord.gg/6KCEgNSDnc",
-  launch: null
+  discord: "https://discord.gg/6KCEgNSDnc"
 };

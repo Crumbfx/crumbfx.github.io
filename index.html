@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crumb V2 is out now · Video tools for After Effects</title>
-  <meta name="description" content="Crumb V2 brings up to 4× AI upscaling, dead-frame removal, motion interpolation and a searchable clip library into After Effects for Windows.">
+  <title>Crumb V2 is free · Video tools for After Effects</title>
+  <meta name="description" content="Download Crumb V2 free for After Effects on Windows. Get up to 4× AI upscaling, dead-frame removal, motion interpolation and a searchable clip library.">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="assets/crumb-logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Crumb V2 is out now">
-  <meta property="og:description" content="Upscale your footage, cut repeated frames and smooth out motion in After Effects. Save the shots you want to use again in your Clip Library.">
+  <meta property="og:title" content="Crumb V2 is now free">
+  <meta property="og:description" content="Download Crumb free for After Effects. Upscale footage, cut repeated frames, smooth motion and save reusable shots in the Clip Library.">
   <meta property="og:image" content="https://crumbfx.github.io/assets/v2-social.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -17,21 +17,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=v2">
-  <link rel="stylesheet" href="demo.css?v=v2">
+  <link rel="stylesheet" href="styles.css?v=v3">
+  <link rel="stylesheet" href="demo.css?v=v3">
   <noscript><style>.reveal, [data-stagger] > *, .com-card .stage-cookie, .com-card .chip-px, .com-card .stage-live { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-
-  <!-- launch banner: shown only while config.launch is active (site.js) -->
-  <div class="launch" id="launch" hidden>
-    <span class="launch-dot" aria-hidden="true"></span>
-    <p><b>Launch special: Crumb is free for 48 hours.</b> Use code <code id="launch-code">LAUNCH</code> at checkout.</p>
-    <button class="launch-copy" type="button" id="launch-copy">Copy code</button>
-    <span class="launch-time" id="launch-time" aria-live="off"></span>
-    <a class="launch-go" href="#pricing" data-buy>Get it free</a>
-  </div>
 
   <!-- ============================================================ nav -->
   <header class="nav" id="nav">
@@ -45,10 +36,10 @@
       <a href="#features" data-pill>Features</a>
       <a href="#community" data-pill>Discord</a>
       <a href="#install" data-pill>Install</a>
-      <a href="#pricing" data-pill>Pricing</a>
+      <a href="#pricing" data-pill>Download</a>
       <a href="#faq" data-pill>FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm buy" href="#pricing" data-buy>Get Crumb</a>
+    <a class="btn btn-primary btn-sm buy" href="#pricing">Get Crumb free</a>
   </header>
 
   <main id="main">
@@ -56,10 +47,10 @@
     <section class="hero" id="top">
       <div class="hero-copy">
         <p class="eyebrow reveal">The After Effects editing toolkit</p>
-        <h1 class="reveal">Crumb V2<br><span>is out now.</span></h1>
+        <h1 class="reveal">Crumb V2<br><span>is now free.</span></h1>
         <p class="lede reveal">Upscale soft footage, cut dead frames and smooth out motion. Save your best shots in the Clip Library and pull them into your next edit.</p>
         <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="#pricing" data-buy>Get Crumb V2 · <span data-price>$5</span></a>
+          <a class="btn btn-primary" href="#pricing">Download free</a>
           <a class="btn btn-ghost" href="#release">See what’s new <span aria-hidden="true">↓</span></a>
         </div>
         <p class="fine reveal"><span data-ae>After Effects 2020 or newer</span> · Windows · instant download</p>
@@ -86,7 +77,7 @@
               <svg class="m-lib-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 6.5 3 3 3-3"/></svg>
             </label>
             <figure class="m-lib-preview">
-              <img src="assets/v2-shot-wednesday.webp" alt="Wednesday Addams in cool blue light" width="720" height="720" fetchpriority="high">
+              <img src="assets/v3-wednesday.webp" alt="Wednesday Addams in cool blue light" width="640" height="360" fetchpriority="high">
               <video id="library-film" preload="none" playsinline muted aria-label="Selected clip preview" hidden></video>
               <figcaption>
                 <strong aria-live="polite">Wednesday</strong>
@@ -97,9 +88,9 @@
               </figcaption>
             </figure>
             <div class="m-lib-strip" role="group" aria-label="Preview a saved clip">
-              <button type="button" data-folder="series" data-name="Wednesday" data-video="assets/v2-shot-wednesday.mp4" data-description="Wednesday Addams in cool blue light" aria-pressed="true"><img src="assets/v2-shot-wednesday.webp" alt="" width="180" height="84"><span>Wednesday</span></button>
-              <button type="button" data-folder="series" data-name="You" data-video="assets/v2-shot-you.mp4" data-description="Two people in a warmly lit room" aria-pressed="false"><img src="assets/v2-shot-you.webp" alt="" width="180" height="84"><span>You</span></button>
-              <button type="button" data-folder="animation" data-name="Reze Arc" data-video="assets/v2-shot-reze.mp4" data-description="Reze looking back in a dark blue scene" aria-pressed="false"><img src="assets/v2-shot-reze.webp" alt="" width="180" height="84"><span>Reze Arc</span></button>
+              <button type="button" data-folder="series" data-name="Wednesday" data-video="assets/v3-wednesday.mp4" data-description="Wednesday Addams in cool blue light" aria-pressed="true"><img src="assets/v3-wednesday.webp" alt="" width="640" height="360"><span>Wednesday</span></button>
+              <button type="button" data-folder="series" data-name="You" data-video="assets/v3-you.mp4" data-description="Two people in a warmly lit room" aria-pressed="false"><img src="assets/v3-you.webp" alt="" width="640" height="360"><span>You</span></button>
+              <button type="button" data-folder="animation" data-name="Reze Arc" data-video="assets/v3-reze.mp4" data-description="Reze looking back in a dark blue scene" aria-pressed="false"><img src="assets/v3-reze.webp" alt="" width="640" height="360"><span>Reze Arc</span></button>
             </div>
             <span class="m-lib-message" role="status"></span>
           </div>
@@ -154,27 +145,31 @@
         <h2 id="release-title">Clean up footage without leaving AE.</h2>
         <p class="lede">Pick a clip, check your settings, and follow the render live. Drop the result above your source layer or replace it.</p>
       </div>
-      <div class="v2-video-tools" data-stagger>
-        <article class="v2-tool">
-          <div class="v2-tool-art v2-upscale" aria-hidden="true">
-            <span>1080p</span><i>→</i><span>4K</span>
+      <div class="demo-grid" data-stagger>
+        <article class="demo demo-up">
+          <div class="cmp" data-compare>
+            <img src="assets/show-up-before.webp" alt="" width="960" height="540" loading="lazy">
+            <img class="cmp-after" src="assets/show-up-after.webp" alt="" width="960" height="540" loading="lazy">
+            <span class="cmp-tag l">480p</span><span class="cmp-tag r">4× upscale</span>
+            <span class="cmp-bar" aria-hidden="true"><i></i></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare before and after upscale">
           </div>
-          <h3>AI upscale</h3>
-          <p>Enlarge footage up to 4× with Real-ESRGAN. Choose a model for camera footage or anime.</p>
+          <h3>AI upscale, up to 4×</h3>
+          <p>Real-ESRGAN with a model for anime or camera footage. Drag the handle: left is the original, right is Crumb.</p>
         </article>
-        <article class="v2-tool">
-          <div class="v2-tool-art v2-dead" aria-hidden="true">
-            <div><span></span><span class="repeat"></span><span></span><span class="repeat"></span><span></span></div>
-          </div>
+        <article class="demo demo-dead">
+          <div class="strip" data-strip><span class="keep"><img src="assets/strip-01.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-02.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-03.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-04.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-05.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-06.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-07.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-08.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-09.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-10.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-11.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-12.webp" alt="" width="240" height="135" loading="lazy"></span></div>
+          <div class="strip-bar"><button class="btn btn-ghost btn-sm" type="button" data-cut aria-pressed="false">Remove repeated frames</button><span class="strip-note" aria-live="polite">12 frames · 7 repeats found</span></div>
           <h3>Dead-frame removal</h3>
-          <p>Find repeated frames and jump straight to the next new picture. Preview the detections, then cut the repeats into a shorter clip.</p>
+          <p>Finds frames that repeat and cuts them into a tighter clip. Tap any frame in the panel to jump to it in your timeline.</p>
         </article>
-        <article class="v2-tool">
-          <div class="v2-tool-art v2-motion" aria-hidden="true">
-            <span><b>30</b> fps</span><i>→</i><span><b>60</b> fps</span>
+        <article class="demo demo-smooth">
+          <div class="pair">
+            <figure><video poster="assets/show-smooth-before.webp" src="assets/show-smooth-before.mp4" muted loop playsinline preload="none" aria-label="Choppy original"></video><figcaption>Before · choppy</figcaption></figure>
+            <figure><video poster="assets/show-smooth-after.webp" src="assets/show-smooth-after.mp4" muted loop playsinline preload="none" aria-label="Smoothed with AI frames"></video><figcaption class="hot">With Crumb · AI in-between frames</figcaption></figure>
           </div>
           <h3>AI motion smoothing</h3>
-          <p>Generate in-between frames with RIFE for smoother playback or 2× and 4× slow motion.</p>
+          <p>RIFE draws the frames in between for smooth playback, 60 fps, or 2× and 4× slow motion.</p>
         </article>
       </div>
       <div class="release-card reveal">
@@ -314,14 +309,14 @@
         <h2>Up and running in a minute.</h2>
       </div>
       <ol class="steps" data-stagger>
-        <li><b>Get Crumb</b><span>Checkout takes a few seconds. You get the download link and receipt by email.</span></li>
-        <li><b>Install the .zxp</b><span>Open <code>crumb.zxp</code> with a free ZXP installer, such as the <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">aescripts ZXP Installer</a>.</span></li>
+        <li><b>Download Crumb</b><span>Get the free installer below. If it comes in a ZIP, extract it first.</span></li>
+        <li><b>Install the .zxp</b><span>Open the Crumb <code>.zxp</code> file with the free <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">aescripts ZXP Installer</a>.</span></li>
         <li><b>Open it in After Effects</b><span>Restart After Effects, then go to <code>Window › Extensions › Crumb</code> and dock it anywhere.</span></li>
       </ol>
     </section>
 
-    <!-- ============================================================ pricing -->
-    <section class="section" id="pricing">
+    <!-- Keep the legacy anchor for links to the download. -->
+    <section class="section download-section" id="pricing">
       <div class="price-card reveal">
         <div class="price-top">
           <img src="assets/crumb-logo.svg" alt="" width="40" height="40" class="price-cookie">
@@ -329,7 +324,7 @@
             <h2>Crumb V2</h2>
             <p class="fine">Build <span data-version>0.1.21</span> · <span data-ae>After Effects 2020 or newer</span></p>
           </div>
-          <p class="price" data-price>$5</p>
+          <p class="price">Free</p>
         </div>
         <ul class="includes" data-stagger>
           <li>AI upscale, dead-frame removal and motion smoothing</li>
@@ -342,10 +337,22 @@
           <li>20 one-click tools</li>
           <li>Updates as they ship</li>
         </ul>
-        <a class="btn btn-primary btn-block" href="https://payhip.com/b/BgoA6" data-buy data-checkout>Get Crumb V2 · <span data-price>$5</span></a>
-        <p class="fine center" data-checkout-note>Secure checkout · instant download</p>
-        <p class="fine center policy-note">No refunds: Crumb is actively maintained, and problems get fixed fast. <a href="#faq-refunds" class="foot-link">Details</a></p>
-        <p class="fine center launch-note" id="launch-note" hidden>Launch special: enter code <b data-launch-code>LAUNCH</b> at checkout to get Crumb free. Ends <span data-launch-ends></span>.</p>
+        <a class="btn btn-primary btn-block" href="https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.21/Crumb-V2-Windows.zip" data-download>Download Crumb for Windows</a>
+        <p class="fine center">Full extension · No payment required · <a href="https://payhip.com/b/BgoA6" target="_blank" rel="noopener">Also on Payhip</a></p>
+      </div>
+    </section>
+
+    <section class="section support-section" id="support" aria-labelledby="support-title">
+      <div class="support-card donate reveal">
+        <img src="assets/crumb-cookie.webp" alt="" width="84" height="84" loading="lazy">
+        <div>
+          <h2 id="support-title">Crumb is free. Help keep it going.</h2>
+          <p>If Crumb saves you time, you can chip in to fund new features and fixes. Everything stays free either way, and every supporter gets a thank-you letter by email.</p>
+        </div>
+        <div class="donate-cta">
+          <a class="btn btn-primary" data-support-link href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener">Support Crumb</a>
+          <a class="btn btn-ghost" href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord>Share feedback</a>
+        </div>
       </div>
     </section>
 
@@ -376,10 +383,6 @@
           <summary>How do I install it?</summary>
           <p>Open the <code>.zxp</code> file with a ZXP installer, restart After Effects and open <code>Window › Extensions › Crumb</code>. Steps are <a href="#install">above</a>.</p>
         </details>
-        <details id="faq-refunds">
-          <summary>Do you offer refunds?</summary>
-          <p>Crumb is a digital product that we actively maintain and update, so we fix problems quickly instead of issuing refunds. All sales are final. If something doesn't work, tell us in the support Discord and we'll sort it out. (<a href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord>Support Discord</a>)</p>
-        </details>
         <details>
           <summary>I found a bug or have an idea.</summary>
           <p>For a bug, open <strong>Tools › Settings › Report a bug</strong> or choose <strong>Report</strong> on an error message. You can edit or exclude recent errors before sending the report privately. For ideas, join the <a href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord>Crumb Discord</a>.</p>
@@ -395,10 +398,10 @@
       <span class="crumbs" aria-hidden="true"><i></i><i></i><i></i></span>
       <img src="assets/crumb-logo.svg" alt="" width="44" height="44">
     </a>
-    <p class="fine">© <span id="year">2026</span> Crumb · made by celo.vfx · <a href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord class="foot-link">Support</a></p>
+    <p class="fine">© <span id="year">2026</span> Crumb · made by celo.vfx · <a href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord class="foot-link">Get help</a> · <a href="#support" class="foot-link">Support Crumb</a></p>
   </footer>
 
-  <script src="config.js?v=0.1.21"></script>
-  <script src="site.js?v=v2"></script>
+  <script src="config.js?v=v2-free"></script>
+  <script src="site.js?v=v3"></script>
 </body>
 </html>

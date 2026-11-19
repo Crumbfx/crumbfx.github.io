@@ -6,21 +6,15 @@
 
   /* ---------------------------------------------------- settings -> page */
   function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
-  if (cfg.price) each("[data-price]", function (n) { n.textContent = cfg.price; });
   if (cfg.version) each("[data-version]", function (n) { n.textContent = cfg.version; });
   if (cfg.aeVersions) each("[data-ae]", function (n) { n.textContent = cfg.aeVersions; });
   if (cfg.tiktok) each("[data-tiktok]", function (n) { n.href = cfg.tiktok; });
-  each("[data-checkout]", function (n) {
-    if (cfg.checkoutUrl) { n.href = cfg.checkoutUrl; n.target = "_blank"; n.rel = "noopener"; }
-    else {
-      n.href = "#pricing";
-      n.addEventListener("click", function (e) {
-        e.preventDefault();
-        var note = document.querySelector("[data-checkout-note]");
-        if (note) note.textContent = "Checkout opens soon. Follow celo.vfx on TikTok for the launch.";
-      });
-    }
-  });
+  if (cfg.downloadUrl) each("[data-download]", function (n) { n.href = cfg.downloadUrl; });
+  if (cfg.supportUrl) {
+    each("[data-support-link]", function (n) { n.href = cfg.supportUrl; });
+    each("[data-support-option]", function (n) { n.hidden = false; });
+    each("[data-support-feedback]", function (n) { n.hidden = true; });
+  }
   if (cfg.discord) each("[data-discord]", function (n) { n.href = cfg.discord; });
 
   /* ---------------------------------------------------- Discord section: live counts from the public invite; the HTML numbers stay if this fails */
@@ -66,38 +60,6 @@
     });
     com.addEventListener("pointerleave", function () { stage.style.setProperty("--mx", 0); stage.style.setProperty("--my", 0); });
   }
-
-  /* ---------------------------------------------------- free-launch window (switches itself off at cfg.launch.endsAt) */
-  var L = cfg.launch, endMs = L && Date.parse(L.endsAt);
-  function launchActive() { return !!(L && endMs && Date.now() < endMs); }
-  var banner = document.getElementById("launch");
-  if (banner && launchActive()) {
-    banner.hidden = false;
-    document.body.classList.add("has-launch");
-    each("[data-launch-code], #launch-code", function (n) { n.textContent = L.code; });
-    each("[data-launch-ends]", function (n) { n.textContent = new Date(endMs).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); });
-    var note = document.getElementById("launch-note"); if (note) note.hidden = false;
-    each("[data-buy]", function (n) { if (/Get Crumb/.test(n.textContent) || n.classList.contains("launch-go")) { n.classList.add("is-free"); } });
-    each("[data-price]", function (n) { n.classList.add("was-price"); });
-    var tEl = document.getElementById("launch-time");
-    var pad = function (v) { return v < 10 ? "0" + v : "" + v; };
-    (function tick() {
-      var left = endMs - Date.now();
-      if (left <= 0) { banner.hidden = true; document.body.classList.remove("has-launch"); if (note) note.hidden = true; each("[data-price]", function (n) { n.classList.remove("was-price"); }); return; }
-      var h = Math.floor(left / 3600000), m = Math.floor(left / 60000) % 60, s = Math.floor(left / 1000) % 60;
-      tEl.textContent = "Ends in " + pad(h) + ":" + pad(m) + ":" + pad(s);
-      setTimeout(tick, 1000);
-    })();
-    var copy = document.getElementById("launch-copy");
-    copy.addEventListener("click", function () {
-      var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy code"; }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(L.code).then(done, done);
-      else { var t = document.createElement("textarea"); t.value = L.code; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} document.body.removeChild(t); done(); }
-    });
-  }
-
-  var rf = document.getElementById("faq-refunds");
-  if (rf) Array.prototype.forEach.call(document.querySelectorAll('a[href="#faq-refunds"]'), function (a) { a.addEventListener("click", function () { rf.open = true; }); });
 
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
@@ -288,4 +250,38 @@
   show(selectedTab);
   window.addEventListener("resize", alignPill);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignPill);
+})();
+
+/* real-footage demos: upscale compare slider, dead-frame cut toggle, looping smooth demo */
+(function () {
+  var cmp = document.querySelector("[data-compare]");
+  if (cmp) {
+    var range = cmp.querySelector("input");
+    var set = function () { cmp.style.setProperty("--pos", range.value + "%"); };
+    range.addEventListener("input", set); set();
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) {
+        if (!e.isIntersecting) return; io.disconnect();
+        var t0 = performance.now();
+        (function tick(t) { var k = Math.min(1, (t - t0) / 1600); range.value = 50 + 38 * Math.sin(k * Math.PI * 2) * (1 - k); set(); if (k < 1) requestAnimationFrame(tick); else { range.value = 50; set(); } })(t0);
+      }); }, { threshold: .6 });
+      io.observe(cmp);
+    }
+  }
+  var strip = document.querySelector("[data-strip]"), btn = document.querySelector("[data-cut]");
+  if (strip && btn) {
+    var note = document.querySelector(".strip-note");
+    btn.addEventListener("click", function () {
+      var on = strip.classList.toggle("is-cut");
+      btn.setAttribute("aria-pressed", on); btn.textContent = on ? "Bring them back" : "Remove repeated frames";
+      note.textContent = on ? "12 → 5 frames · 7 repeats cut" : "12 frames · 7 repeats found";
+    });
+  }
+  var vids = document.querySelectorAll(".pair video");
+  if ("IntersectionObserver" in window) {
+    var vo = new IntersectionObserver(function (es) { es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.preload = "auto"; e.target.play().catch(function () {}); } else e.target.pause();
+    }); }, { threshold: .25 });
+    vids.forEach(function (v) { vo.observe(v); });
+  }
 })();
