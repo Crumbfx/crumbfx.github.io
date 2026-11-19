@@ -84,7 +84,7 @@
 .strip-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 .strip-note { color: var(--text-2); font: 12px var(--font-mono); }
 .pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-.pair figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 21 / 9; }
+.pair figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 16 / 9; }
 .pair video { width: 100%; height: 100%; object-fit: contain; display: block; }
 .pair figcaption { position: absolute; left: 10px; top: 10px; padding: 4px 10px; border-radius: 999px; font: 700 11px var(--font-ui); background: rgba(10,10,12,.78); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
 .pair figcaption.hot { background: var(--brand); color: #1d1209; box-shadow: none; }
