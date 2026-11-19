@@ -7,7 +7,7 @@
 .x-fine a { color: var(--text-2); text-underline-offset: 3px; }
 
 /* ------------------------------------------------------------ hero */
-.x-hero { position: relative; max-width: var(--x-max); margin: 0 auto; padding: 72px var(--gutter) 40px; text-align: center; isolation: isolate; }
+.x-hero { position: relative; max-width: var(--x-max); margin: 0 auto; padding: 72px var(--gutter) 40px; text-align: center; isolation: isolate; overflow-x: clip; }
 .x-hero-glow { position: absolute; inset: -120px -20% auto; height: 760px; z-index: -1; pointer-events: none;
   background: radial-gradient(560px 380px at 50% 18%, rgba(233,181,117,.20), transparent 70%), radial-gradient(520px 420px at 82% 70%, rgba(110,140,220,.10), transparent 70%), radial-gradient(480px 380px at 14% 72%, rgba(233,120,140,.07), transparent 70%); }
 .x-hero-copy { max-width: 860px; margin: 0 auto; }
