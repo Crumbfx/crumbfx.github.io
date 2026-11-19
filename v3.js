@@ -169,8 +169,7 @@
     var fileUrl = function () { return cfg.downloadUrl || again.href; };
     var remembered = function (k, v) { try { if (v === undefined) return localStorage.getItem("crumb.dl." + k) || ""; localStorage.setItem("crumb.dl." + k, v); } catch (e) { return ""; } };
     function start() {
-      // counts a started download as an event; nothing about the person is sent
-      try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "download-" + (cfg.version || "latest"), title: "Download", event: true }); } catch (e) {}
+      try { if (window.crumbTrack) window.crumbTrack("dl", { n: cfg.version || "" }); } catch (e) {}
       var a =document.createElement("a"); a.href = fileUrl(); a.rel = "noopener"; a.download = ""; document.body.appendChild(a); a.click(); a.remove();
     }
     // every download button on the page opens the form; without JavaScript they still link straight to the file
