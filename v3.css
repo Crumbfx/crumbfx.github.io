@@ -232,6 +232,8 @@
   .x-meta { flex-direction: column; gap: 2px; }
   .x-timer { padding: 18px; }
   .x-timer-stats { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .x-timer-stats div { padding: 10px 8px; min-width: 0; }
+  .x-timer-stats dd { font-size: 14px; white-space: nowrap; }
   .x-grid { grid-template-columns: 1fr; }
   .x-final { padding: 52px 18px 36px; border-radius: 24px; }
   .x-steps { grid-template-columns: 1fr; }
