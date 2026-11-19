@@ -3,28 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crumb V2 is free · Video tools for After Effects</title>
-  <meta name="description" content="Download Crumb V2 free for After Effects on Windows. Get up to 4× AI upscaling, dead-frame removal, motion interpolation and a searchable clip library.">
+  <title>Crumb V2 · Free After Effects toolkit</title>
+  <meta name="description" content="Crumb V2 is free for After Effects on Windows. Cut repeated frames, upscale up to 4×, smooth choppy motion, keep a clip library, theme After Effects and time every edit.">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="assets/crumb-logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Crumb V2 is now free">
-  <meta property="og:description" content="Download Crumb free for After Effects. Upscale footage, cut repeated frames, smooth motion and save reusable shots in the Clip Library.">
-  <meta property="og:image" content="https://crumbfx.github.io/assets/v2-social.jpg">
+  <meta property="og:title" content="Crumb V2 is free">
+  <meta property="og:description" content="The After Effects toolkit: repeated-frame removal, 4× AI upscale, AI motion smoothing, a clip library, AE themes and an edit timer.">
+  <meta property="og:image" content="https://crumbfx.github.io/assets/v3/social.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Crumb V2 is out now. AI upscale, dead-frame removal and the Clip Library.">
+  <meta property="og:image:alt" content="Crumb V2 is free. The After Effects toolkit.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=v5">
-  <link rel="stylesheet" href="demo.css?v=v5">
-  <noscript><style>.reveal, [data-stagger] > *, .com-card .stage-cookie, .com-card .chip-px, .com-card .stage-live { opacity: 1; transform: none; }</style></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=v7">
+  <link rel="stylesheet" href="v3.css?v=v7">
+  <noscript><style>.reveal, [data-stagger] > *, .x-tile, .com-card .stage-cookie, .com-card .chip-px, .com-card .stage-live { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ============================================================ nav -->
   <header class="nav" id="nav">
     <a class="brand" href="#top" aria-label="Crumb home">
       <img src="assets/crumb-logo.svg" alt="" width="26" height="26">
@@ -32,229 +31,249 @@
     </a>
     <nav class="pills" aria-label="Sections">
       <span class="pill-bg" aria-hidden="true"></span>
-      <a href="#release" data-pill>What's new in V2</a>
-      <a href="#features" data-pill>Features</a>
+      <a href="#new" data-pill>New in V2</a>
+      <a href="#more" data-pill>Features</a>
       <a href="#community" data-pill>Discord</a>
-      <a href="#install" data-pill>Install</a>
-      <a href="#pricing" data-pill>Download</a>
+      <a href="#download" data-pill>Download</a>
       <a href="#faq" data-pill>FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm buy" href="#pricing">Get Crumb free</a>
+    <a class="btn btn-primary btn-sm buy" href="#download">Get Crumb free</a>
   </header>
 
   <main id="main">
     <!-- ============================================================ hero -->
-    <section class="hero" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow reveal">The After Effects editing toolkit</p>
-        <h1 class="reveal">Crumb V2<br><span>is now free.</span></h1>
-        <p class="lede reveal">Upscale soft footage, cut dead frames and smooth out motion. Save your best shots in the Clip Library and pull them into your next edit.</p>
-        <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="#pricing">Download free</a>
-          <a class="btn btn-ghost" href="#release">See what’s new <span aria-hidden="true">↓</span></a>
+    <section class="x-hero" id="top">
+      <div class="x-hero-glow" aria-hidden="true"></div>
+      <div class="x-hero-copy">
+        <p class="x-badge reveal"><span class="x-dot" aria-hidden="true"></span>Crumb V2 · Free for After Effects</p>
+        <h1 class="reveal">Edit the moment.<br><span>Crumb does the rest.</span></h1>
+        <p class="x-lede reveal">Cut repeated frames, upscale soft footage up to 4×, smooth out choppy motion and keep your best shots one click away. All inside After Effects, all on your PC, <b>free</b>.</p>
+        <div class="x-cta reveal">
+          <a class="btn btn-primary btn-lg" href="https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.21/Crumb-V2-Windows.zip" data-download>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13h10"/></svg>Download Crumb V2
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#new">See it work</a>
         </div>
-        <p class="fine reveal"><span data-ae>After Effects 2020 or newer</span> · Windows · instant download</p>
+        <p class="x-fine reveal"><span data-ae>After Effects 2020 or newer</span> · Windows · <span data-version>0.1.21</span> · No account, no payment</p>
       </div>
 
-      <!-- an illustration of the panel (not the real extension) -->
-      <div class="mock reveal" aria-label="Interactive Crumb panel preview" role="region">
-        <div class="mock-top"><img src="assets/crumb-logo.svg" alt="" width="16" height="16"><b>Crumb</b><span class="mock-ae">AE 26.3</span></div>
-        <div class="mock-tabs" role="tablist" aria-label="Panel preview">
-          <span class="mock-pill" aria-hidden="true"></span>
-          <button class="on" type="button" data-screen="library" aria-label="Library" aria-selected="true" role="tab"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4.5a1 1 0 0 1 1-1h3l1.5 1.6H13a1 1 0 0 1 1 1v5.4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/></svg><span>Library</span></button>
-          <button type="button" data-screen="tools" aria-label="Tools"><svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/></svg><span>Tools</span></button>
-          <button type="button" data-screen="beats" aria-label="Beats"><svg viewBox="0 0 16 16"><path d="M2 8h1.5M4.5 5v6M7 2.5v11M9.5 5.5v5M12 4v8"/></svg><span>Beats</span></button>
-          <button type="button" data-screen="captions" aria-label="Captions"><svg viewBox="0 0 16 16"><rect x="1.75" y="3" width="12.5" height="10" rx="1.5"/><path d="M4.5 9.5h3M9.5 9.5h2M4.5 7h7"/></svg><span>Captions</span></button>
-          <button type="button" data-screen="presets" aria-label="Presets"><svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg><span>Presets</span></button>
+      <!-- every tile keeps its clip's own shape, so nothing is cropped -->
+      <div class="x-reel" aria-label="Footage processed with Crumb">
+        <div class="x-row">
+          <figure class="x-tile" style="--ar:1.7778">
+            <video src="assets/v3/koe.mp4" poster="assets/v3/koe.webp" muted loop playsinline preload="metadata" aria-label="Koe no Katachi clip"></video>
+            <figcaption><i class="t-red"></i>74 repeated frames cut</figcaption>
+          </figure>
+          <figure class="x-tile" style="--ar:1">
+            <video src="assets/v3/jenna.mp4" poster="assets/v3/jenna.webp" muted loop playsinline preload="metadata" aria-label="Jenna Ortega clip"></video>
+            <figcaption><i class="t-blue"></i>Smoothed to 60 fps</figcaption>
+          </figure>
         </div>
-
-        <div class="mock-screens">
-          <div class="screen m-library on" data-screen="library">
-            <div class="m-lib-head"><b>Clip library</b><span class="m-lib-count">3 clips</span></div>
-            <label class="m-lib-folder">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4.5a1 1 0 0 1 1-1h3l1.5 1.6H13a1 1 0 0 1 1 1v5.4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/></svg>
-              <select aria-label="Browse clip folder"><option value="all">All clips</option><option value="series">Series</option><option value="animation">Animation</option></select>
-              <svg class="m-lib-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 6.5 3 3 3-3"/></svg>
-            </label>
-            <figure class="m-lib-preview">
-              <img src="assets/v3-wednesday.webp" alt="Wednesday Addams in cool blue light" width="640" height="360" fetchpriority="high">
-              <video id="library-film" preload="none" playsinline muted aria-label="Selected clip preview" hidden></video>
-              <figcaption>
-                <strong aria-live="polite">Wednesday</strong>
-                <button class="m-lib-play" type="button" aria-controls="library-film" hidden>
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 6 4-6 4Z" fill="currentColor"/><rect x="5" y="5" width="6" height="6" fill="currentColor"/></svg>
-                  <span>Play clip</span>
-                </button>
-              </figcaption>
-            </figure>
-            <div class="m-lib-strip" role="group" aria-label="Preview a saved clip">
-              <button type="button" data-folder="series" data-name="Wednesday" data-video="assets/v3-wednesday.mp4" data-description="Wednesday Addams in cool blue light" aria-pressed="true"><img src="assets/v3-wednesday.webp" alt="" width="640" height="360"><span>Wednesday</span></button>
-              <button type="button" data-folder="series" data-name="You" data-video="assets/v3-you.mp4" data-description="Two people in a warmly lit room" aria-pressed="false"><img src="assets/v3-you.webp" alt="" width="640" height="360"><span>You</span></button>
-              <button type="button" data-folder="animation" data-name="Reze Arc" data-video="assets/v3-reze.mp4" data-description="Reze looking back in a dark blue scene" aria-pressed="false"><img src="assets/v3-reze.webp" alt="" width="640" height="360"><span>Reze Arc</span></button>
-            </div>
-            <span class="m-lib-message" role="status"></span>
-          </div>
-          <div class="screen" data-screen="tools">
-            <p class="m-sec">Layers</p>
-            <div class="m-grid">
-              <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor" stroke="none"/></svg>ADJ</span>
-              <span><svg viewBox="0 0 16 16"><path d="M3 4V2.75h10V4M8 2.75v10.5M6 13.25h4"/></svg>TXT</span>
-              <span><svg viewBox="0 0 16 16"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/></svg>SOL</span>
-              <span><svg viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" rx="1"/><path d="M8 5.5v5M5.5 8h5"/></svg>NUL</span>
-            </div>
-            <p class="m-sec">Transform</p>
-            <div class="m-row"><svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke-dasharray="2 2"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/></svg>Center</div>
-            <div class="m-row"><svg viewBox="0 0 16 16"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg>Fit to Comp</div>
-            <div class="m-row"><svg viewBox="0 0 16 16"><path d="M8 2v12" stroke-dasharray="1.5 1.5"/><path d="M6 4.5 2.5 11.5H6Z"/><path d="M10 4.5l3.5 7H10Z"/></svg>Mirror</div>
-          </div>
-
-          <div class="screen" data-screen="beats">
-            <div class="m-src"><b>phonk_drop.mp3</b><span>Analyzed · 0:24</span></div>
-            <div class="m-wave" id="mock-wave"></div>
-            <div class="m-meta"><span>101 hits</span><span><b>140</b> BPM</span></div>
-            <div class="m-seg"><i class="on">Hits</i><i>Beat grid</i></div>
-            <div class="m-cta">Place 101 markers</div>
-          </div>
-
-          <div class="screen" data-screen="captions">
-            <p class="m-h">Auto captions</p>
-            <p class="m-sec">Words on screen</p>
-            <div class="m-seg wide"><i>1</i><i class="on">2</i><i>3</i><i>4</i></div>
-            <div class="m-cap"><span>WAIT FOR</span><span>IT…</span><span>NO WAY</span></div>
-            <p class="m-ok"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="m5.3 8.2 1.9 1.9 3.6-3.8"/></svg>Runs on this PC</p>
-            <div class="m-cta">Make captions</div>
-          </div>
-
-          <div class="screen" data-screen="presets">
-            <div class="m-head"><b>Presets</b><i class="m-save">+ Save</i></div>
-            <div class="m-list">
-              <div><svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg><b>Shakes</b><span>9</span></div>
-              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>remap</b><span>Time Remap · 2 keys</span></div>
-              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>glow text</b><span>Deep Glow, Shadow</span></div>
-              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>bubble in</b><span>6 keyframes</span></div>
-              <div><svg viewBox="0 0 16 16"><path d="M4.5 2.5h7v11L8 11l-3.5 2.5Z"/></svg><b>lens blur in</b><span>2 keyframes</span></div>
-            </div>
-          </div>
+        <div class="x-row">
+          <figure class="x-tile" style="--ar:1">
+            <video src="assets/v3/wednesday.mp4" poster="assets/v3/wednesday.webp" muted loop playsinline preload="metadata" aria-label="Wednesday clip"></video>
+            <figcaption><i class="t-green"></i>Saved to Clip Library</figcaption>
+          </figure>
+          <figure class="x-tile" style="--ar:2.4">
+            <img class="x-kb" src="assets/v3/reze-after.webp" alt="Reze from Chainsaw Man, upscaled 4× with Crumb" width="1200" height="500">
+            <figcaption><i class="t-amber"></i>Upscaled 4×</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="section release-section" id="release" aria-labelledby="release-title">
-      <div class="sec-head reveal">
+    <!-- ============================================================ new in V2 -->
+    <section class="x-section" id="new" aria-labelledby="new-title">
+      <div class="x-head reveal">
         <p class="eyebrow">New in Crumb V2</p>
-        <h2 id="release-title">Clean up footage without leaving AE.</h2>
-        <p class="lede">Pick a clip, check your settings, and follow the render live. Drop the result above your source layer or replace it.</p>
+        <h2 id="new-title">Six tools that change how you edit.</h2>
+        <p class="x-sub">Every demo below is real footage run through Crumb. Try them.</p>
       </div>
-      <div class="demo-grid" data-stagger>
-        <article class="demo demo-up">
-          <div class="cmp" data-compare>
-            <img src="assets/show-up-before.webp" alt="" width="960" height="540" loading="lazy">
-            <img class="cmp-after" src="assets/show-up-after.webp" alt="" width="960" height="540" loading="lazy">
-            <span class="cmp-tag l">480p</span><span class="cmp-tag r">4× upscale</span>
-            <span class="cmp-bar" aria-hidden="true"><i></i></span>
-            <input type="range" min="0" max="100" value="50" aria-label="Compare before and after upscale">
-          </div>
-          <h3>AI upscale, up to 4×</h3>
-          <p>Real-ESRGAN with a model for anime or camera footage. Drag the handle: left is the original, right is Crumb.</p>
-        </article>
-        <article class="demo demo-dead">
-          <div class="strip" data-strip><span class="keep"><img src="assets/strip-01.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-02.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-03.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-04.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-05.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-06.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-07.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-08.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-09.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-10.webp" alt="" width="240" height="135" loading="lazy"></span><span class="dup"><img src="assets/strip-11.webp" alt="" width="240" height="135" loading="lazy"></span><span class="keep"><img src="assets/strip-12.webp" alt="" width="240" height="135" loading="lazy"></span></div>
-          <div class="strip-bar"><button class="btn btn-ghost btn-sm" type="button" data-cut aria-pressed="false">Remove repeated frames</button><span class="strip-note" aria-live="polite">12 frames · 7 repeats found</span></div>
-          <h3>Dead-frame removal</h3>
-          <p>Finds frames that repeat and cuts them into a tighter clip. Tap any frame in the panel to jump to it in your timeline.</p>
-        </article>
-        <article class="demo demo-smooth">
-          <div class="pair">
-            <figure><video poster="assets/smooth15-before.webp" src="assets/smooth15-before.mp4" muted loop playsinline preload="none" aria-label="Choppy original"></video><figcaption>Before · 15 fps</figcaption></figure>
-            <figure><video poster="assets/smooth15-after.webp" src="assets/smooth15-after.mp4" muted loop playsinline preload="none" aria-label="Smoothed with AI frames"></video><figcaption class="hot">With Crumb · 60 fps</figcaption></figure>
-          </div>
-          <h3>AI motion smoothing</h3>
-          <p>RIFE draws the frames in between: choppy 15 fps footage becomes smooth 60 fps, or turn it into clean 2× and 4× slow motion.</p>
-        </article>
-      </div>
-      <div class="release-card reveal">
-        <div class="release-copy">
-          <h2>Your shots. Your workspace.</h2>
-          <dl class="release-notes">
-            <div><dt>Folders for your footage</dt><dd>Save or import clips into named folders. Move a clip between shows and your existing AE projects keep their footage links.</dd></div>
-            <div><dt>Workspace themes and backgrounds</dt><dd>Switch palettes with a smooth fade. On supported builds, change After Effects colours, frame a background image and adjust window transparency.</dd></div>
-            <div><dt>Report a bug from the panel</dt><dd>Open a report directly from an error. Review the details, trim the log, and send it privately to Crumb support.</dd></div>
-          </dl>
+
+      <!-- 01 repeated frames -->
+      <article class="x-chapter" id="dead">
+        <div class="x-copy reveal">
+          <span class="x-num">01</span>
+          <h3>Repeated frames,<br>found and cut.</h3>
+          <p>Anime is drawn on twos and threes, so most frames are copies. Crumb finds every repeat, shows you the strip, and cuts them into a tighter clip in one click.</p>
+          <p class="x-try">Tap a frame below to jump to it, just like in the panel.</p>
+          <ul class="x-specs"><li><b>133</b> frames in</li><li><b>59</b> kept</li><li><b>74</b> repeats cut</li></ul>
         </div>
-        <figure class="release-demo">
-          <div class="release-player">
-            <video id="release-film" width="442" height="480" controls preload="none" playsinline muted poster="assets/release-021-poster.webp" aria-label="Crumb panel recording showing tab slides and theme changes" aria-describedby="release-caption">
-              <source src="assets/release-021-motion.mp4" type="video/mp4">
-              <a href="assets/release-021-motion.mp4">Watch the panel recording</a>
-            </video>
-            <button class="release-play" type="button" aria-controls="release-film" aria-label="Play the Crumb panel demo" hidden><span aria-hidden="true">▶</span> Play demo</button>
+        <div class="x-demo reveal" data-dead>
+          <div class="x-frame" style="--ar:1.7778">
+            <video data-src-orig="assets/v3/koe.mp4" data-src-cut="assets/v3/koe-tight.mp4" src="assets/v3/koe.mp4" poster="assets/v3/koe.webp" muted loop playsinline preload="metadata" aria-label="Koe no Katachi, original"></video>
+            <span class="x-tag" data-dead-tag>Original · 5.5 s</span>
+            <span class="x-readout" data-dead-readout hidden></span>
           </div>
-          <figcaption id="release-caption">Tab slides and theme changes in Crumb V2</figcaption>
-        </figure>
+          <div class="x-strip" role="group" aria-label="First 24 frames. Amber = new drawing, red = repeat."></div>
+          <div class="x-bar">
+            <div class="seg" role="group" aria-label="Clip version">
+              <button type="button" aria-pressed="true" data-dead-mode="orig">Original</button>
+              <button type="button" aria-pressed="false" data-dead-mode="cut">Crumb cut</button>
+            </div>
+            <span class="x-legend"><i class="k"></i>new drawing <i class="d"></i>repeat</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 upscale -->
+      <article class="x-chapter flip" id="upscale">
+        <div class="x-copy reveal">
+          <span class="x-num">02</span>
+          <h3>Soft footage,<br>up to 4× sharper.</h3>
+          <p>Real-ESRGAN runs on your graphics card, with one model for anime and one for camera footage. The result lands back in your comp at the same size, just crisp.</p>
+          <p class="x-try">Drag across the frame to compare.</p>
+          <ul class="x-specs"><li><b>2×–4×</b> scale</li><li>Anime + real models</li><li>Stays on your PC</li></ul>
+        </div>
+        <div class="x-demo reveal">
+          <div class="x-frame x-compare" style="--ar:2.4" data-compare>
+            <img src="assets/v3/reze-before.webp" alt="Reze, original 480p frame" width="1200" height="500">
+            <img class="after" src="assets/v3/reze-after.webp" alt="Reze, upscaled 4× with Crumb" width="1200" height="500">
+            <span class="x-tag">480p source</span><span class="x-tag r hot">4× with Crumb</span>
+            <span class="x-handle" aria-hidden="true"><i></i></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare original and upscaled">
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 smooth motion -->
+      <article class="x-chapter" id="smooth">
+        <div class="x-copy reveal">
+          <span class="x-num">03</span>
+          <h3>Choppy motion,<br>made smooth.</h3>
+          <p>RIFE draws brand-new frames in between the ones you have. Turn 15 fps footage into fluid 60 fps, or stretch a moment into clean 2× and 4× slow motion.</p>
+          <p class="x-try">Same clip, same speed. Watch the hand.</p>
+          <ul class="x-specs"><li>30 · 60 fps</li><li>2× · 4× slow-mo</li><li>GPU accelerated</li></ul>
+        </div>
+        <div class="x-demo reveal" data-smooth>
+          <div class="x-pair">
+            <div class="x-frame" style="--ar:1"><video src="assets/v3/jenna-15.mp4" poster="assets/v3/jenna-15.webp" muted playsinline preload="metadata" aria-label="Original, 15 frames per second"></video><span class="x-tag">Before · 15 fps</span></div>
+            <div class="x-frame" style="--ar:1"><video src="assets/v3/jenna-60.mp4" poster="assets/v3/jenna-60.webp" muted playsinline preload="metadata" aria-label="Smoothed by Crumb, 60 frames per second"></video><span class="x-tag hot">With Crumb · 60 fps</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 clip library -->
+      <article class="x-chapter flip" id="library">
+        <div class="x-copy reveal">
+          <span class="x-num">04</span>
+          <h3>Your best shots,<br>one click away.</h3>
+          <p>Save a layer or a work area to your own Clip Library, sorted into folders. Hover to preview, then drop it in at the playhead of any project. Everything stays on your PC.</p>
+          <p class="x-try">Hover a clip, then press Insert.</p>
+          <ul class="x-specs"><li>Folders + tags</li><li>Hover previews</li><li>Share as .crumbclip</li></ul>
+        </div>
+        <div class="x-demo reveal">
+          <div class="x-lib" data-lib>
+            <div class="x-lib-head">
+              <b>Clip library</b>
+              <div class="x-lib-folders" role="group" aria-label="Folder">
+                <button type="button" aria-pressed="true" data-folder="all">All</button>
+                <button type="button" aria-pressed="false" data-folder="anime">Anime</button>
+                <button type="button" aria-pressed="false" data-folder="series">Series</button>
+              </div>
+            </div>
+            <div class="x-lib-grid">
+              <button type="button" class="x-clip" data-folder="series" data-name="Wednesday" aria-pressed="true">
+                <span class="x-thumb"><img src="assets/v3/wednesday.webp" alt="" loading="lazy"><video data-src="assets/v3/wednesday.mp4" muted loop playsinline preload="none"></video></span>
+                <span class="x-meta"><b>Wednesday</b><small>series · 0:01.4</small></span>
+              </button>
+              <button type="button" class="x-clip" data-folder="series" data-name="Jenna wave" aria-pressed="false">
+                <span class="x-thumb"><img src="assets/v3/jenna.webp" alt="" loading="lazy"><video data-src="assets/v3/jenna.mp4" muted loop playsinline preload="none"></video></span>
+                <span class="x-meta"><b>Jenna wave</b><small>series · 0:03.5</small></span>
+              </button>
+              <button type="button" class="x-clip" data-folder="anime" data-name="Shoko look" aria-pressed="false">
+                <span class="x-thumb"><img src="assets/v3/koe.webp" alt="" loading="lazy"><video data-src="assets/v3/koe.mp4" muted loop playsinline preload="none"></video></span>
+                <span class="x-meta"><b>Shoko look</b><small>anime · 0:05.5</small></span>
+              </button>
+              <button type="button" class="x-clip" data-folder="anime" data-name="Reze smile" aria-pressed="false">
+                <span class="x-thumb"><img src="assets/v3/reze-after.webp" alt="" loading="lazy"></span>
+                <span class="x-meta"><b>Reze smile</b><small>anime · still</small></span>
+              </button>
+            </div>
+            <div class="x-lib-foot">
+              <span class="x-lib-status" role="status" aria-live="polite">4 clips · hover to preview</span>
+              <button type="button" class="btn btn-primary btn-sm" data-insert>Insert at playhead</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 themes -->
+      <article class="x-chapter" id="themes">
+        <div class="x-copy reveal">
+          <span class="x-num">05</span>
+          <h3>Make After Effects<br>feel like yours.</h3>
+          <p>Twelve workspace themes recolour After Effects itself, not just the panel. Put your own picture behind the workspace, adjust transparency, and theme Crumb to match.</p>
+          <p class="x-try">Pick a theme.</p>
+          <ul class="x-specs"><li>12 AE themes</li><li>Background image</li><li>Restore in one click</li></ul>
+        </div>
+        <div class="x-demo reveal" data-themes>
+          <div class="x-frame x-ae" style="--ar:1.7206">
+            <img src="assets/v3/ae/wide.webp" alt="After Effects workspace, default colours" width="1360" height="790" loading="lazy" data-ae-base>
+            <img class="x-ae-next" alt="" width="1360" height="790" data-ae-next hidden>
+            <img class="x-ae-wall" src="assets/v3/ae/wallpaper.webp" alt="" width="1360" height="765" loading="lazy" data-ae-wall>
+            <span class="x-tag" data-ae-name>Default</span>
+          </div>
+          <div class="x-swatches" role="group" aria-label="After Effects theme">
+            <button type="button" aria-pressed="true" data-theme="wide" style="--c:#3a3a3c"><i></i>Default</button>
+            <button type="button" aria-pressed="false" data-theme="warm-dusk" style="--c:#E5A484"><i></i>Warm dusk</button>
+            <button type="button" aria-pressed="false" data-theme="orbit" style="--c:#ACA3FF"><i></i>Orbit</button>
+            <button type="button" aria-pressed="false" data-theme="pine" style="--c:#A4CF8B"><i></i>Pine</button>
+            <button type="button" aria-pressed="false" data-theme="ember" style="--c:#FF7A3D"><i></i>Ember</button>
+            <button type="button" aria-pressed="false" data-theme="rose" style="--c:#FF8FB1"><i></i>Rose</button>
+            <button type="button" aria-pressed="false" data-theme="violet" style="--c:#B88CFF"><i></i>Violet</button>
+            <button type="button" aria-pressed="false" data-theme="glacier" style="--c:#7FD4E8"><i></i>Glacier</button>
+            <button type="button" aria-pressed="false" data-theme="mint" style="--c:#4FE0B8"><i></i>Mint</button>
+          </div>
+          <label class="x-switch"><input type="checkbox" data-ae-wall-toggle><span aria-hidden="true"></span>Background image</label>
+        </div>
+      </article>
+
+      <!-- 06 edit timer -->
+      <article class="x-chapter flip" id="timer">
+        <div class="x-copy reveal">
+          <span class="x-num">06</span>
+          <h3>Know how long<br>every edit takes.</h3>
+          <p>The edit timer starts when you open a project and only counts the time you are actually working. It pauses on its own when you step away and keeps a history of every edit.</p>
+          <ul class="x-specs"><li>Active time only</li><li>Auto pause</li><li>Edit history</li></ul>
+        </div>
+        <div class="x-demo reveal">
+          <div class="x-timer" data-timer>
+            <div class="x-timer-pill"><span class="x-live" aria-hidden="true"></span><b data-timer-clock>01:24:37</b><span>reze edit.aep</span></div>
+            <dl class="x-timer-stats">
+              <div><dt>Active</dt><dd data-timer-active>01:24:37</dd></div>
+              <div><dt>Idle</dt><dd>00:03:12</dd></div>
+              <div><dt>Started</dt><dd>7:20 PM</dd></div>
+            </dl>
+            <p class="x-timer-h">Recent edits</p>
+            <ul class="x-timer-list">
+              <li><b>wednesday edit.aep</b><span>2:11:48</span><i style="--w:92%"></i></li>
+              <li><b>koe amv.aep</b><span>1:37:05</span><i style="--w:68%"></i></li>
+              <li><b>chainsaw man reze.aep</b><span>0:58:20</span><i style="--w:41%"></i></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================================================ everything else -->
+    <section class="x-section" id="more" aria-labelledby="more-title">
+      <div class="x-head reveal">
+        <p class="eyebrow">Also inside</p>
+        <h2 id="more-title">Everything you redo in every edit.</h2>
+      </div>
+      <div class="x-grid" data-stagger>
+        <div><b>Beat markers</b><p>Finds every kick and snare, or a steady BPM grid, and cuts layers on the beat.</p></div>
+        <div><b>Auto captions</b><p>Speech to text on your own PC. Captions never overlap and audio never leaves your computer.</p></div>
+        <div><b>Curve editor</b><p>Value and Speed graphs with an Ease slider. Save your curves and apply them in one click.</p></div>
+        <div><b>Presets on your PC</b><p>Save keyframes and effect stacks into folders and apply them anywhere.</p></div>
+        <div><b>Effects library</b><p>Any effect you own, Deep Glow, Sapphire and Continuum included, one click away.</p></div>
+        <div><b>Expressions, no code</b><p>Wiggle, loop, bounce, jitter and link. Stack blocks and see the real expression.</p></div>
+        <div><b>20 one-click tools</b><p>Adjustment layers, nulls with parenting, center, fit to comp, freeze frame and more.</p></div>
+        <div><b>Report a bug in-app</b><p>Send a private report straight from an error. Review and trim it first.</p></div>
       </div>
     </section>
 
-    <!-- ============================================================ features -->
-    <section class="section" id="features">
-      <div class="sec-head reveal">
-        <p class="eyebrow">What's inside</p>
-        <h2>Everything you redo in every edit, one click away.</h2>
-      </div>
-      <div class="features" data-stagger>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><path d="M2 8h1.5M4.5 5v6M7 2.5v11M9.5 5.5v5M12 4v8"/></svg>
-          <h3>Beat markers</h3>
-          <p>Finds every kick and snare, or a steady BPM grid, and drops markers on them. Then cut every layer on the beat in one click.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><rect x="1.75" y="3" width="12.5" height="10" rx="1.5"/><path d="M4.5 9.5h3M9.5 9.5h2M4.5 7h7"/></svg>
-          <h3>Auto captions</h3>
-          <p>Speech to text on your own PC. Every caption lands on its words, one after another, never overlapping. Audio never leaves your computer.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><path d="M2.5 13.5c5 0 3-11 11-11"/><circle cx="5" cy="13.5" r="1" fill="currentColor"/><circle cx="11" cy="2.5" r="1" fill="currentColor"/></svg>
-          <h3>Curve editor</h3>
-          <p>Shape eases with real Value and Speed graphs, apply them to any keyframes, and keep your own curves.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><path d="M2.5 4.5a1 1 0 0 1 1-1h3l1.5 1.5h4.5a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1Z"/></svg>
-          <h3>Presets on your PC</h3>
-          <p>Save keyframes and effect stacks into your own folders. Apply them anywhere in one click, back them up, share them.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><path d="M2.5 13.5c1.5 0 2-1 2.4-3l1.2-6c.4-2 1-2.75 2.4-2.75"/><path d="M3.5 6.5h4"/><path d="m9.5 7.5 4 5M13.5 7.5l-4 5"/></svg>
-          <h3>Effects library</h3>
-          <p>Any effect you own, Deep Glow, Sapphire, Continuum included, saved with your settings and added in one click.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16"><path d="M5 3.5C3.5 3.5 3.5 5 3.5 6S2.5 8 2 8c.5 0 1.5.5 1.5 2s0 2.5 1.5 2.5M11 3.5c1.5 0 1.5 1.5 1.5 2.5s1 2 1.5 2c-.5 0-1.5.5-1.5 2s0 2.5-1.5 2.5"/><path d="M6.5 10.5 9.5 5.5"/></svg>
-          <h3>Expressions, no code</h3>
-          <p>Wiggle, loop, bounce, jitter, link. Stack blocks, see the real expression, edit it by hand if you want.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="m7 6 3 2-3 2Z"/></svg>
-          <h3>Clip Library</h3>
-          <p>Organize saved shots by movie or show. Search by name or tag, preview a shot, and insert it at the playhead.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="9" r="5"/><path d="M8 6v3l2 1M6 1.5h4"/></svg>
-          <h3>Edit timer</h3>
-          <p>Track active editing time and look up previous sessions. The timer pauses after the idle interval you choose.</p>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><path d="M6.5 3v10M7 6h7"/></svg>
-          <h3>Workspace appearance</h3>
-          <p>Choose a palette for Crumb. On supported Windows AE builds, customise the workspace colours, background image and transparency.</p>
-        </article>
-        <article class="feature wide">
-          <svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/></svg>
-          <h3>20 one-click tools</h3>
-          <p>Adjustment layer, solids, shapes, nulls with parenting, anchor point pad, center, fit to comp, mirror, pre-compose and un-pre-compose, freeze frame, save frame, quick text in your style, and color paint.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================ community -->
     <!-- member and online counts are live from the public invite (site.js); the numbers here are the fallback -->
     <section class="section" id="community">
       <div class="com-card reveal">
@@ -302,55 +321,32 @@
       </div>
     </section>
 
-    <!-- ============================================================ install -->
-    <section class="section" id="install">
-      <div class="sec-head reveal">
-        <p class="eyebrow">Install</p>
-        <h2>Up and running in a minute.</h2>
+    <!-- ============================================================ download -->
+    <section class="x-section" id="download" aria-labelledby="download-title">
+      <div class="x-final reveal">
+        <div class="x-final-glow" aria-hidden="true"></div>
+        <img class="x-final-logo" src="assets/crumb-logo.svg" alt="" width="72" height="72">
+        <h2 id="download-title">Crumb V2 is free.</h2>
+        <p class="x-sub">The full extension. No trial, no account, no payment.</p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.21/Crumb-V2-Windows.zip" data-download>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13h10"/></svg>Download for Windows
+        </a>
+        <p class="x-fine">Version <span data-version>0.1.21</span> · <span data-ae>After Effects 2020 or newer</span> · <a href="https://payhip.com/b/BgoA6" target="_blank" rel="noopener">Also on Payhip</a></p>
+        <ol class="x-steps">
+          <li><b>1</b><span><strong>Extract the ZIP</strong>and close After Effects.</span></li>
+          <li><b>2</b><span><strong>Open Crumb-V2.zxp</strong>with the free <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">ZXP Installer</a>.</span></li>
+          <li><b>3</b><span><strong>Restart After Effects</strong>then Window › Extensions › Crumb.</span></li>
+        </ol>
       </div>
-      <ol class="steps" data-stagger>
-        <li><b>Download Crumb</b><span>Get the free installer below. If it comes in a ZIP, extract it first.</span></li>
-        <li><b>Install the .zxp</b><span>Open the Crumb <code>.zxp</code> file with the free <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">aescripts ZXP Installer</a>.</span></li>
-        <li><b>Open it in After Effects</b><span>Restart After Effects, then go to <code>Window › Extensions › Crumb</code> and dock it anywhere.</span></li>
-      </ol>
-    </section>
 
-    <!-- Keep the legacy anchor for links to the download. -->
-    <section class="section download-section" id="pricing">
-      <div class="price-card reveal">
-        <div class="price-top">
-          <img src="assets/crumb-logo.svg" alt="" width="40" height="40" class="price-cookie">
-          <div>
-            <h2>Crumb V2</h2>
-            <p class="fine">Build <span data-version>0.1.21</span> · <span data-ae>After Effects 2020 or newer</span></p>
-          </div>
-          <p class="price">Free</p>
-        </div>
-        <ul class="includes" data-stagger>
-          <li>AI upscale, dead-frame removal and motion smoothing</li>
-          <li>Clip folders and local clip saves</li>
-          <li>Panel themes and edit history</li>
-          <li>Beat markers and cut on the beat</li>
-          <li>Offline auto captions</li>
-          <li>Curve editor with saved curves</li>
-          <li>Presets, effects library and expressions</li>
-          <li>20 one-click tools</li>
-          <li>Updates as they ship</li>
-        </ul>
-        <a class="btn btn-primary btn-block" href="https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.21/Crumb-V2-Windows.zip" data-download>Download Crumb for Windows</a>
-        <p class="fine center">Full extension · No payment required · <a href="https://payhip.com/b/BgoA6" target="_blank" rel="noopener">Also on Payhip</a></p>
-      </div>
-    </section>
-
-    <section class="section support-section" id="support" aria-labelledby="support-title">
-      <div class="support-card donate reveal">
-        <img src="assets/crumb-cookie.webp" alt="" width="84" height="84" loading="lazy">
+      <div class="x-donate reveal" id="support">
+        <img src="assets/crumb-cookie.webp" alt="" width="64" height="64" loading="lazy">
         <div>
-          <h2 id="support-title">Crumb is free. Help keep it going.</h2>
-          <p>If Crumb saves you time, you can chip in to fund new features and fixes. Everything stays free either way, and every supporter gets a thank-you letter by email.</p>
+          <h3>Help keep Crumb free.</h3>
+          <p>If Crumb saves you time, chip in to fund new tools and fixes. Every supporter gets a thank-you letter by email.</p>
         </div>
-        <div class="donate-cta">
-          <a class="btn btn-primary" data-support-link href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener">Support Crumb</a>
+        <div class="x-donate-cta">
+          <a class="btn btn-primary" data-support-link href="https://payhip.com/b/bd9Hh" target="_blank" rel="noopener">Support Crumb</a>
           <a class="btn btn-ghost" href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord>Share feedback</a>
         </div>
       </div>
@@ -381,7 +377,7 @@
         </details>
         <details>
           <summary>How do I install it?</summary>
-          <p>Open the <code>.zxp</code> file with a ZXP installer, restart After Effects and open <code>Window › Extensions › Crumb</code>. Steps are <a href="#install">above</a>.</p>
+          <p>Open the <code>.zxp</code> file with a ZXP installer, restart After Effects and open <code>Window › Extensions › Crumb</code>. Steps are <a href="#download">above</a>.</p>
         </details>
         <details>
           <summary>I found a bug or have an idea.</summary>
@@ -401,7 +397,8 @@
     <p class="fine">© <span id="year">2026</span> Crumb · made by celo.vfx · <a href="https://discord.gg/6KCEgNSDnc" target="_blank" rel="noopener" data-discord class="foot-link">Get help</a> · <a href="#support" class="foot-link">Support Crumb</a></p>
   </footer>
 
-  <script src="config.js?v=v2-free"></script>
-  <script src="site.js?v=v5"></script>
+  <script src="config.js?v=v7"></script>
+  <script src="site.js?v=v7"></script>
+  <script src="v3.js?v=v7"></script>
 </body>
 </html>
