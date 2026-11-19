@@ -166,20 +166,56 @@
   var preview = library.querySelector("figure img");
   var clipCount = library.querySelector(".m-lib-count");
   var selectedClip = clips[0], previewMotion;
+  var libraryFilm = document.getElementById("library-film");
+  var playClip = library.querySelector(".m-lib-play");
+  var playLabel = playClip.querySelector("span");
+  var clipMessage = library.querySelector(".m-lib-message");
+  var playAttempt = 0;
+
+  function resetClip() {
+    playAttempt++;
+    libraryFilm.pause();
+    if (libraryFilm.readyState) libraryFilm.currentTime = 0;
+    libraryFilm.hidden = true;
+    playClip.classList.remove("is-playing");
+    playLabel.textContent = "Play clip";
+  }
+
+  playClip.hidden = !libraryFilm.canPlayType("video/mp4");
+  playClip.addEventListener("click", function () {
+    if (!libraryFilm.hidden) {
+      resetClip();
+      return;
+    }
+    clipMessage.textContent = "";
+    var src = selectedClip.dataset.video;
+    if (libraryFilm.getAttribute("src") !== src) libraryFilm.src = src;
+    libraryFilm.hidden = false;
+    playClip.classList.add("is-playing");
+    playLabel.textContent = "Stop clip";
+    var attempt = ++playAttempt;
+    libraryFilm.play().catch(function () {
+      if (attempt !== playAttempt) return;
+      resetClip();
+      clipMessage.textContent = "This preview couldn’t play. Try again.";
+    });
+  });
+  libraryFilm.addEventListener("ended", resetClip);
 
   function selectClip(clip) {
+    resetClip();
+    clipMessage.textContent = "";
     selectedClip = clip;
     clips.forEach(function (item) { item.setAttribute("aria-pressed", String(item === clip)); });
     var src = clip.querySelector("img").getAttribute("src");
     if (preview.getAttribute("src") !== src) {
       preview.src = src;
-      preview.alt = clip.dataset.name;
+      preview.alt = clip.dataset.description;
       if (previewMotion) previewMotion.cancel();
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && preview.animate)
         previewMotion = preview.animate([{ opacity: 0.65 }, { opacity: 1 }], { duration: 200, easing: "ease-out" });
     }
     library.querySelector("figcaption strong").textContent = clip.dataset.name;
-    library.querySelector("figcaption span").textContent = clip.dataset.time;
   }
   clips.forEach(function (clip) {
     clip.addEventListener("click", function () { selectClip(clip); });
@@ -223,7 +259,8 @@
       screen.classList.toggle("on", on);
       screen.setAttribute("aria-hidden", String(!on));
     });
-    [folder].concat(clips).forEach(function (control) { control.tabIndex = name === "library" ? 0 : -1; });
+    [folder, playClip].concat(clips).forEach(function (control) { control.tabIndex = name === "library" ? 0 : -1; });
+    if (name !== "library") resetClip();
     alignPill();
     clearTimeout(waveTimer);
     wave.classList.remove("grown");

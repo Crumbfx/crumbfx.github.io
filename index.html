@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crumb 0.1.21 · Clip folders and editing tools for After Effects</title>
-  <meta name="description" content="Save shots by movie or show and insert them at the playhead. Explore Crumb 0.1.21 for After Effects, with smoother themes, private bug reports, beat markers and offline captions.">
+  <title>Crumb V2 is out now · Video tools for After Effects</title>
+  <meta name="description" content="Crumb V2 brings up to 4× AI upscaling, dead-frame removal, motion interpolation and a searchable clip library into After Effects for Windows.">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="assets/crumb-logo.svg" type="image/svg+xml">
-  <meta property="og:title" content="Crumb 0.1.21 · Your clip library in After Effects">
-  <meta property="og:description" content="File clips by movie or show, find a shot, and drop it into your next edit. Take a look inside the update.">
-  <meta property="og:image" content="https://crumbfx.github.io/assets/release-021-social.jpg">
+  <meta property="og:title" content="Crumb V2 is out now">
+  <meta property="og:description" content="Upscale your footage, cut repeated frames and smooth out motion in After Effects. Save the shots you want to use again in your Clip Library.">
+  <meta property="og:image" content="https://crumbfx.github.io/assets/v2-social.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Crumb 0.1.21 and its Clip Library with shots from Afterglow.">
+  <meta property="og:image:alt" content="Crumb V2 is out now. AI upscale, dead-frame removal and the Clip Library.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=0.1.21">
-  <link rel="stylesheet" href="demo.css?v=0.1.21">
+  <link rel="stylesheet" href="styles.css?v=v2">
+  <link rel="stylesheet" href="demo.css?v=v2">
   <noscript><style>.reveal, [data-stagger] > *, .com-card .stage-cookie, .com-card .chip-px, .com-card .stage-live { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
@@ -41,7 +41,7 @@
     </a>
     <nav class="pills" aria-label="Sections">
       <span class="pill-bg" aria-hidden="true"></span>
-      <a href="#release" data-pill>What's new</a>
+      <a href="#release" data-pill>What's new in V2</a>
       <a href="#features" data-pill>Features</a>
       <a href="#community" data-pill>Discord</a>
       <a href="#install" data-pill>Install</a>
@@ -55,12 +55,12 @@
     <!-- ============================================================ hero -->
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="eyebrow reveal"><a class="release-link" href="#release">New in Crumb <span data-version>0.1.21</span><span aria-hidden="true">↗</span></a></p>
-        <h1 class="reveal">Build your<br>clip library.</h1>
-        <p class="lede reveal">Save a shot from your timeline, file it by movie or show, and drop it into your next edit. Beats, captions and curves are a tab away in After Effects.</p>
+        <p class="eyebrow reveal">The After Effects editing toolkit</p>
+        <h1 class="reveal">Crumb V2<br><span>is out now.</span></h1>
+        <p class="lede reveal">Upscale soft footage, cut dead frames and smooth out motion. Save your best shots in the Clip Library and pull them into your next edit.</p>
         <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="#pricing" data-buy>Get Crumb · <span data-price>$5</span></a>
-          <a class="btn btn-ghost" href="#release">Explore the update <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-primary" href="#pricing" data-buy>Get Crumb V2 · <span data-price>$5</span></a>
+          <a class="btn btn-ghost" href="#release">See what’s new <span aria-hidden="true">↓</span></a>
         </div>
         <p class="fine reveal"><span data-ae>After Effects 2020 or newer</span> · Windows · instant download</p>
       </div>
@@ -82,18 +82,26 @@
             <div class="m-lib-head"><b>Clip library</b><span class="m-lib-count">3 clips</span></div>
             <label class="m-lib-folder">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4.5a1 1 0 0 1 1-1h3l1.5 1.6H13a1 1 0 0 1 1 1v5.4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/></svg>
-              <select aria-label="Browse clip folder"><option value="all">All clips</option><option value="afterglow">Afterglow</option><option value="details">Detail shots</option></select>
+              <select aria-label="Browse clip folder"><option value="all">All clips</option><option value="series">Series</option><option value="animation">Animation</option></select>
               <svg class="m-lib-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 6.5 3 3 3-3"/></svg>
             </label>
             <figure class="m-lib-preview">
-              <img src="assets/demo-road.webp" alt="A sports car on an open desert road at sunset" width="660" height="340">
-              <figcaption aria-live="polite" aria-atomic="true"><strong>Desert run</strong><span>0:04</span></figcaption>
+              <img src="assets/v2-shot-wednesday.webp" alt="Wednesday Addams in cool blue light" width="720" height="720" fetchpriority="high">
+              <video id="library-film" preload="none" playsinline muted aria-label="Selected clip preview" hidden></video>
+              <figcaption>
+                <strong aria-live="polite">Wednesday</strong>
+                <button class="m-lib-play" type="button" aria-controls="library-film" hidden>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 4 6 4-6 4Z" fill="currentColor"/><rect x="5" y="5" width="6" height="6" fill="currentColor"/></svg>
+                  <span>Play clip</span>
+                </button>
+              </figcaption>
             </figure>
             <div class="m-lib-strip" role="group" aria-label="Preview a saved clip">
-              <button type="button" data-folder="afterglow" data-name="Desert run" data-time="0:04" aria-pressed="true"><img src="assets/demo-road.webp" alt="" width="180" height="84"><span>Desert run</span></button>
-              <button type="button" data-folder="afterglow" data-name="Side pass" data-time="0:03" aria-pressed="false"><img src="assets/demo-side.webp" alt="" width="180" height="84"><span>Side pass</span></button>
-              <button type="button" data-folder="details" data-name="Taillight" data-time="0:02" aria-pressed="false"><img src="assets/demo-tail.webp" alt="" width="180" height="84"><span>Taillight</span></button>
+              <button type="button" data-folder="series" data-name="Wednesday" data-video="assets/v2-shot-wednesday.mp4" data-description="Wednesday Addams in cool blue light" aria-pressed="true"><img src="assets/v2-shot-wednesday.webp" alt="" width="180" height="84"><span>Wednesday</span></button>
+              <button type="button" data-folder="series" data-name="You" data-video="assets/v2-shot-you.mp4" data-description="Two people in a warmly lit room" aria-pressed="false"><img src="assets/v2-shot-you.webp" alt="" width="180" height="84"><span>You</span></button>
+              <button type="button" data-folder="animation" data-name="Reze Arc" data-video="assets/v2-shot-reze.mp4" data-description="Reze looking back in a dark blue scene" aria-pressed="false"><img src="assets/v2-shot-reze.webp" alt="" width="180" height="84"><span>Reze Arc</span></button>
             </div>
+            <span class="m-lib-message" role="status"></span>
           </div>
           <div class="screen" data-screen="tools">
             <p class="m-sec">Layers</p>
@@ -141,13 +149,40 @@
     </section>
 
     <section class="section release-section" id="release" aria-labelledby="release-title">
+      <div class="sec-head reveal">
+        <p class="eyebrow">New in Crumb V2</p>
+        <h2 id="release-title">Clean up footage without leaving AE.</h2>
+        <p class="lede">Pick a clip, check your settings, and follow the render live. Drop the result above your source layer or replace it.</p>
+      </div>
+      <div class="v2-video-tools" data-stagger>
+        <article class="v2-tool">
+          <div class="v2-tool-art v2-upscale" aria-hidden="true">
+            <span>1080p</span><i>→</i><span>4K</span>
+          </div>
+          <h3>AI upscale</h3>
+          <p>Enlarge footage up to 4× with Real-ESRGAN. Choose a model for camera footage or anime.</p>
+        </article>
+        <article class="v2-tool">
+          <div class="v2-tool-art v2-dead" aria-hidden="true">
+            <div><span></span><span class="repeat"></span><span></span><span class="repeat"></span><span></span></div>
+          </div>
+          <h3>Dead-frame removal</h3>
+          <p>Find repeated frames and jump straight to the next new picture. Preview the detections, then cut the repeats into a shorter clip.</p>
+        </article>
+        <article class="v2-tool">
+          <div class="v2-tool-art v2-motion" aria-hidden="true">
+            <span><b>30</b> fps</span><i>→</i><span><b>60</b> fps</span>
+          </div>
+          <h3>AI motion smoothing</h3>
+          <p>Generate in-between frames with RIFE for smoother playback or 2× and 4× slow motion.</p>
+        </article>
+      </div>
       <div class="release-card reveal">
         <div class="release-copy">
-          <p class="eyebrow">What's new in <span data-version>0.1.21</span></p>
-          <h2 id="release-title">Inside the update.</h2>
+          <h2>Your shots. Your workspace.</h2>
           <dl class="release-notes">
             <div><dt>Folders for your footage</dt><dd>Save or import clips into named folders. Move a clip between shows and your existing AE projects keep their footage links.</dd></div>
-            <div><dt>Smoother tabs and themes</dt><dd>Switch palettes to see the panel colours fade into place. Tabs slide in either direction and remember where you scrolled.</dd></div>
+            <div><dt>Workspace themes and backgrounds</dt><dd>Switch palettes with a smooth fade. On supported builds, change After Effects colours, frame a background image and adjust window transparency.</dd></div>
             <div><dt>Report a bug from the panel</dt><dd>Open a report directly from an error. Review the details, trim the log, and send it privately to Crumb support.</dd></div>
           </dl>
         </div>
@@ -159,7 +194,7 @@
             </video>
             <button class="release-play" type="button" aria-controls="release-film" aria-label="Play the Crumb panel demo" hidden><span aria-hidden="true">▶</span> Play demo</button>
           </div>
-          <figcaption id="release-caption">Tab slides and theme changes in Crumb <span data-version>0.1.21</span></figcaption>
+          <figcaption id="release-caption">Tab slides and theme changes in Crumb V2</figcaption>
         </figure>
       </div>
     </section>
@@ -203,8 +238,8 @@
         </article>
         <article class="feature">
           <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="m7 6 3 2-3 2Z"/></svg>
-          <h3>Video cleanup</h3>
-          <p>Find repeated frames, jump to the next new picture, smooth motion, or upscale a shot with local video tools.</p>
+          <h3>Clip Library</h3>
+          <p>Organize saved shots by movie or show. Search by name or tag, preview a shot, and insert it at the playhead.</p>
         </article>
         <article class="feature">
           <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="9" r="5"/><path d="M8 6v3l2 1M6 1.5h4"/></svg>
@@ -291,13 +326,14 @@
         <div class="price-top">
           <img src="assets/crumb-logo.svg" alt="" width="40" height="40" class="price-cookie">
           <div>
-            <h2>Crumb</h2>
-            <p class="fine">Version <span data-version>0.1.21</span> · <span data-ae>After Effects 2020 or newer</span></p>
+            <h2>Crumb V2</h2>
+            <p class="fine">Build <span data-version>0.1.21</span> · <span data-ae>After Effects 2020 or newer</span></p>
           </div>
           <p class="price" data-price>$5</p>
         </div>
         <ul class="includes" data-stagger>
-          <li>Clip folders, local clip saves and video tools</li>
+          <li>AI upscale, dead-frame removal and motion smoothing</li>
+          <li>Clip folders and local clip saves</li>
           <li>Panel themes and edit history</li>
           <li>Beat markers and cut on the beat</li>
           <li>Offline auto captions</li>
@@ -306,7 +342,7 @@
           <li>20 one-click tools</li>
           <li>Updates as they ship</li>
         </ul>
-        <a class="btn btn-primary btn-block" href="https://payhip.com/b/BgoA6" data-buy data-checkout>Get Crumb · <span data-price>$5</span></a>
+        <a class="btn btn-primary btn-block" href="https://payhip.com/b/BgoA6" data-buy data-checkout>Get Crumb V2 · <span data-price>$5</span></a>
         <p class="fine center" data-checkout-note>Secure checkout · instant download</p>
         <p class="fine center policy-note">No refunds: Crumb is actively maintained, and problems get fixed fast. <a href="#faq-refunds" class="foot-link">Details</a></p>
         <p class="fine center launch-note" id="launch-note" hidden>Launch special: enter code <b data-launch-code>LAUNCH</b> at checkout to get Crumb free. Ends <span data-launch-ends></span>.</p>
@@ -323,6 +359,10 @@
         <details>
           <summary>Which After Effects versions work?</summary>
           <p>The panel supports After Effects 2020 and newer on Windows. Native workspace recolouring is verified for AE 26.3.0 build 87. Crumb's own panel palettes work independently.</p>
+        </details>
+        <details>
+          <summary>What do the video tools need?</summary>
+          <p>Video processing runs on your PC after a one-time tools download. AI upscaling and motion smoothing use a Vulkan-capable GPU. Dead-frame removal runs through FFmpeg.</p>
         </details>
         <details>
           <summary>Do auto captions need the internet?</summary>
@@ -359,6 +399,6 @@
   </footer>
 
   <script src="config.js?v=0.1.21"></script>
-  <script src="site.js?v=0.1.21"></script>
+  <script src="site.js?v=v2"></script>
 </body>
 </html>

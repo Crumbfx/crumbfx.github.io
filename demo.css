@@ -1,10 +1,11 @@
-.hero .mock { max-width: 370px; }
+.hero .mock { max-width: 442px; }
+.hero .mock-screens { height: clamp(295px,75vw,353px); }
 .mock .screen {
   visibility: hidden;
   transition: opacity var(--dur-med) var(--ease), transform var(--dur-slow) var(--ease), visibility 0s var(--dur-med);
 }
 .mock .screen.on { visibility: visible; transition-delay: 0s; }
-.mock-tabs button:focus-visible, .m-lib-strip button:focus-visible,
+.mock-tabs button:focus-visible, .m-lib-strip button:focus-visible, .m-lib-play:focus-visible,
 .m-lib-folder:focus-within { outline: 2px solid var(--brand); outline-offset: 2px; }
 
 .m-library { display: flex; flex-direction: column; gap: 9px; }
@@ -24,13 +25,24 @@
 }
 .m-lib-folder option { background: var(--bg-1); }
 .m-lib-preview { position: relative; isolation: isolate; flex: 1; min-height: 0; margin: 0; border-radius: 10px; overflow: hidden; background: var(--bg-1); }
-.m-lib-preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.m-lib-preview img, .m-lib-preview video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 44%; }
+.m-lib-preview video { position: absolute; inset: 0; }
+.m-lib-preview video[hidden], .m-lib-play[hidden] { display: none; }
 .m-lib-preview figcaption {
-  position: absolute; inset: auto 0 0; display: flex; align-items: baseline; justify-content: space-between;
-  padding: 28px 12px 8px; color: #fff; background: linear-gradient(transparent,rgba(0,0,0,.8));
+  position: absolute; inset: auto 0 0; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 34px 10px 8px 12px; color: #fff; background: linear-gradient(transparent,rgba(0,0,0,.82));
 }
-.m-lib-preview strong { font-size: 13px; }
-.m-lib-preview figcaption span { font: 10px var(--font-mono); }
+.m-lib-preview strong { font-size: 14px; }
+.m-lib-play {
+  display: flex; align-items: center; gap: 5px; min-height: 35px; padding: 0 10px; color: #f4f4f2;
+  background: #14171e; border: 1px solid #62636a; border-radius: var(--r-pill);
+  font: 600 11px var(--font-ui); cursor: pointer; white-space: nowrap;
+}
+.m-lib-play:hover { background: #282d36; }
+.m-lib-play rect, .m-lib-play.is-playing path { display: none; }
+.m-lib-play.is-playing rect { display: block; }
+.m-lib-message { color: var(--brand); font-size: 11px; }
+.m-lib-message:empty { display: none; }
 .m-lib-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; flex: none; padding: 2px; }
 .m-lib-strip button {
   display: block; min-width: 0; padding: 0; border: 1px solid var(--line-strong);
@@ -39,7 +51,7 @@
 }
 .m-lib-strip button[hidden] { display: none; }
 .m-lib-strip button[aria-pressed="true"], .m-lib-strip button:hover { border-color: var(--brand); color: var(--text-1); }
-.m-lib-strip img { width: 100%; height: 42px; object-fit: cover; }
+.m-lib-strip img { width: 100%; height: 50px; object-fit: cover; object-position: center 44%; }
 .m-lib-strip span { display: block; padding: 5px 6px; }
 @media (max-width: 380px) {
   .mock-tabs button { padding-inline: 6px; }
