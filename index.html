@@ -341,11 +341,31 @@
             <li><b>Already have Crumb?</b> Use Update now in the panel to get this release.</li>
           </ul>
         </div>
-        <ol class="x-steps">
-          <li><b>1</b><span><strong>Extract the ZIP</strong>and close After Effects.</span></li>
-          <li><b>2</b><span><strong>Open the .zxp inside</strong>with the free <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">ZXP Installer</a>.</span></li>
-          <li><b>3</b><span><strong>Restart After Effects</strong>then Window › Extensions › Crumb.</span></li>
+        <div class="x-video"><video controls preload="metadata" playsinline poster="assets/crumb-install-poster.jpg" width="1920" height="1080" aria-label="How to install Crumb in After Effects, 55 seconds"><source src="assets/crumb-install-tutorial.mp4" type="video/mp4"></video><p class="x-fine">55-second walkthrough, no sound. Captions on screen.</p></div>
+        <h3 class="x-steps-title">Install in 4 steps</h3>
+        <ol class="x-steps x-steps-big">
+          <li><b>1</b><span><strong>Download and extract</strong>Press the Download button above. Right-click the ZIP and choose <em>Extract All</em>. Then close After Effects.</span></li>
+          <li><b>2</b><span><strong>Install it with ZXP Installer</strong>Get the free <a href="https://aescripts.com/learn/zxp-installer/" target="_blank" rel="noopener">ZXP Installer</a>, open it, and drag the <code>.zxp</code> file from the extracted folder onto its window. It needs the Adobe Creative Cloud app to be open and signed in.</span></li>
+          <li><b>3</b><span><strong>Restart After Effects</strong>Close it completely and open it again.</span></li>
+          <li><b>4</b><span><strong>Open Crumb</strong>In After Effects choose <em>Window › Extensions › Crumb</em>. You can dock it like any other panel.</span></li>
         </ol>
+        <details class="x-trouble" id="install-help">
+          <summary>Can't sign in to Adobe, or the installer won't work?</summary>
+          <div class="x-trouble-body">
+            <p>Install Crumb with one command instead. Nothing to download first, and no Adobe sign-in needed.</p>
+            <ol>
+              <li>Close After Effects.</li>
+              <li>Press the Windows key, type <strong>PowerShell</strong> and press Enter.</li>
+              <li>Copy the command below, paste it into the PowerShell window (right-click pastes) and press Enter.</li>
+              <li>Wait for <em>Installed Crumb</em>, then open After Effects and go to <em>Window › Extensions › Crumb</em>.</li>
+            </ol>
+            <div class="x-cmd">
+              <pre><code id="install-cmd">[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; foreach ($v in 9..13) { New-Item -Path "HKCU:\Software\Adobe\CSXS.$v" -Force | Out-Null; Set-ItemProperty -Path "HKCU:\Software\Adobe\CSXS.$v" -Name PlayerDebugMode -Value "1" -Type String }; $u = Invoke-RestMethod "https://crumbfx.github.io/update.json"; $zip = "$env:TEMP\crumb-$($u.version).zip"; Invoke-WebRequest $u.zxp -OutFile $zip; if ((Get-FileHash $zip -Algorithm SHA256).Hash -ne $u.sha256.ToUpper()) { "Checksum mismatch, nothing installed" } else { $d = "$env:APPDATA\Adobe\CEP\extensions\com.crumb.tools"; if (Test-Path $d) { Remove-Item $d -Recurse -Force }; New-Item -ItemType Directory -Force $d | Out-Null; Expand-Archive $zip $d -Force; "Installed Crumb $($u.version) to $d" }</code></pre>
+              <button type="button" class="btn btn-ghost" id="install-copy" data-ui-sound="navigate">Copy command</button>
+            </div>
+            <p class="x-fine">It always installs the newest version and checks the file before installing. If it says <em>Checksum mismatch</em>, run it again.</p>
+          </div>
+        </details>
       </div>
 
       <div class="x-donate reveal" id="support">

@@ -98,3 +98,18 @@
   window.addEventListener("resize", onScroll);
   onScroll();
 })();
+
+/* Copy button for the install command */
+(function () {
+  var button = document.getElementById("install-copy"), code = document.getElementById("install-cmd");
+  if (!button || !code) return;
+  button.addEventListener("click", function () {
+    var done = function () { button.textContent = "Copied"; setTimeout(function () { button.textContent = "Copy command"; }, 2000); };
+    var fallback = function () {
+      var range = document.createRange(); range.selectNodeContents(code);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Press Ctrl+C"; }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code.textContent).then(done, fallback); else fallback();
+  });
+})();
