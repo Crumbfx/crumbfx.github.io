@@ -1,22 +1,36 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crumb Uploader · Send your edit to TikTok</title>
-<meta name="description" content="Crumb Uploader prepares your edit for TikTok and sends it to your TikTok inbox from the browser. Free, made by the Crumb team.">
-<link rel="icon" href="../assets/crumb-logo.svg" type="image/svg+xml"><link rel="stylesheet" href="page.css"></head>
+<meta name="description" content="Crumb Uploader sends your finished video to your TikTok inbox from the browser, so you can caption and post it in the app. Free, made by the Crumb team.">
+<link rel="icon" href="../assets/crumb-logo.svg" type="image/svg+xml"><link rel="stylesheet" href="page.css">
+</head>
 <body><main>
 <header class="top"><img src="../assets/crumb-logo.svg" alt=""><a href="../">Crumb</a></header>
 <h1>Crumb Uploader</h1>
-<p class="lead">Finish an edit, prepare it for TikTok, and send it to your TikTok inbox without moving the file to your phone.</p>
-<h2>How it works</h2>
-<ol>
-<li>Choose your finished video in the browser. It is prepared on your own device.</li>
-<li>Connect your TikTok account once with TikTok Login Kit. Crumb only sees your TikTok display name and avatar.</li>
-<li>Press Send to TikTok. The video goes to your TikTok inbox as a draft.</li>
-<li>Open the TikTok app, add your caption and post it yourself. Crumb never posts for you.</li>
-</ol>
+<p class="lead">Send your finished video to your TikTok inbox without moving the file to your phone. Open TikTok afterwards to add a caption and post it yourself.</p>
+
+<section class="card" id="card" aria-live="polite">
+  <ol class="steps">
+    <li id="s1"><b>1. Connect TikTok</b>
+      <p id="who">Log in with TikTok once. Crumb only sees your display name and avatar, and can only put drafts in your inbox.</p>
+      <div class="row"><button id="connect" type="button">Connect TikTok</button><button id="disconnect" type="button" class="quiet" hidden>Disconnect</button></div>
+    </li>
+    <li id="s2"><b>2. Choose your video</b>
+      <p>MP4, MOV or WebM. It stays on your device until you press send.</p>
+      <input id="file" type="file" accept="video/mp4,video/quicktime,video/webm">
+    </li>
+    <li id="s3"><b>3. Send to TikTok</b>
+      <div class="row"><button id="send" type="button" disabled>Send to TikTok</button></div>
+      <progress id="bar" max="1" value="0" hidden></progress>
+      <p id="msg" role="status"></p>
+    </li>
+  </ol>
+</section>
+
 <h2>What it asks TikTok for</h2>
 <ul><li><b>user.info.basic</b>: to show which account is connected.</li><li><b>video.upload</b>: to place your video in your inbox as a draft.</li></ul>
-<h2>Free</h2>
-<p>Crumb Uploader is free to use. No payment and no ads. You can disconnect TikTok at any time on the same screen.</p>
+<p>Crumb never posts for you and does not use Direct Post. Free, no payment, no ads.</p>
 <nav class="foot"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="../">Crumb for After Effects</a></nav>
-</main></body></html>
+</main>
+<script src="uploader.js"></script>
+</body></html>
