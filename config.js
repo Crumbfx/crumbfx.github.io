@@ -4,8 +4,8 @@
  * and the supporter thank-you email are ready.
  */
 window.CRUMB_SITE = {
-  downloadUrl: "https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.31/Crumb-V2-0.1.31-Windows.zip",
-  supportUrl: "https://payhip.com/b/bd9Hh",  version: "0.1.31",
+  downloadUrl: "https://github.com/Crumbfx/crumbfx.github.io/releases/download/crumb-v2-0.1.32/Crumb-V2-0.1.32-Windows.zip",
+  supportUrl: "https://payhip.com/b/bd9Hh",  version: "0.1.32",
   released: "Nov 19, 2026",
   aeVersions: "After Effects 2020 or newer",
   tiktok: "https://www.tiktok.com/@celo.vfx",
