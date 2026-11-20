@@ -296,3 +296,17 @@
 .x-new-box li::marker { color: var(--brand); }
 .x-new-box b { color: var(--text-1); }
 @media (max-width: 640px) { .x-badge-go { display: none; } .x-new-box { padding: 18px; } }
+
+/* sound effects button (sfx.js) */
+.sfx-toggle {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60; width: 42px; height: 42px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid var(--line-strong); color: var(--text-1); cursor: pointer;
+  background: rgba(18, 18, 20, .72); -webkit-backdrop-filter: blur(12px) saturate(1.3); backdrop-filter: blur(12px) saturate(1.3);
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .06);
+  transition: transform .18s cubic-bezier(.22, 1, .36, 1), border-color .18s, color .18s, background-color .18s;
+}
+.sfx-toggle:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--brand) 55%, var(--line-strong)); color: var(--brand); }
+.sfx-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.sfx-toggle.is-off { color: var(--text-3); }
+@media (max-width: 520px) { .sfx-toggle { right: 12px; bottom: 12px; width: 40px; height: 40px; } }
+@media (prefers-reduced-motion: reduce) { .sfx-toggle { transition: none; } .sfx-toggle:hover { transform: none; } }
