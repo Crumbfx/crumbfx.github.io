@@ -2,7 +2,7 @@
  * Your question is sent to Crumb's helper server and a free AI service. Nothing is stored in your browser. */
 (function () {
   "use strict";
-  var API = "https://crumb-studio.de.deplexo.com/api/site";
+  var API = "https://crumbfx-private-reports.netlify.app/api/bot";
   var PROMPTS = ["How do I install Crumb?", "ZXP Installer says to sign in to Adobe", "Crumb isn’t in my Extensions menu", "How do I update Crumb?"];
   var history = [], busy = false, cfg = null, key = null;
   function $(sel, root) { return (root || document).querySelector(sel); }
