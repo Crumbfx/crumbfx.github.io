@@ -40,7 +40,14 @@
     return found;
   }
   function scroll() { log.scrollTop = log.scrollHeight; }
-  function say(role, text) { var m = el("div", {"class": "cb-msg " + role}, text); log.append(m); scroll(); return m; }
+  function say(role, text) {
+    var m = el("div", {"class": "cb-msg " + role});
+    // The AI sometimes uses **bold** and `code`. Show them as text styling, never as HTML.
+    String(text).replace(/`([^`]+)`/g, "$1").split(/\*\*(.+?)\*\*/).forEach(function (part, i) {
+      m.append(i % 2 ? el("strong", {}, part) : document.createTextNode(part));
+    });
+    log.append(m); scroll(); return m;
+  }
   function linkRow(links) {
     if (!links || !links.length) return;
     var row = el("div", {"class": "cb-links"});
