@@ -113,3 +113,27 @@
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code.textContent).then(done, fallback); else fallback();
   });
 })();
+
+/* Live download count: GitHub keeps one number per release file. Nothing about any person is involved. */
+(function () {
+  var wraps = document.querySelectorAll("[data-dl-wrap]"); if (!wraps.length) return;
+  var KEY = "crumb.dl", API = "https://api.github.com/repos/Crumbfx/crumbfx.github.io/releases?per_page=100";
+  function show(total) {
+    if (!(total > 0)) return;
+    var text = total.toLocaleString("en-US");
+    document.querySelectorAll("[data-dl-count]").forEach(function (el) { el.textContent = text; });
+    wraps.forEach(function (el) { el.hidden = false; });
+  }
+  var cached = null; try { cached = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+  if (cached) show(cached.total);
+  if (cached && Date.now() - cached.at < 15 * 60 * 1000) return;
+  fetch(API, { headers: { Accept: "application/vnd.github+json" } }).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (releases) {
+    var total = 0;
+    releases.forEach(function (r) {
+      if (!/^crumb-v2/.test(r.tag_name)) return;
+      (r.assets || []).forEach(function (a) { if (/\.zip$/.test(a.name)) total += a.download_count || 0; });
+    });
+    show(total);
+    try { localStorage.setItem(KEY, JSON.stringify({ total: total, at: Date.now() })); } catch (e) {}
+  }).catch(function () {});
+})();
